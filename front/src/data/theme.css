@@ -1,0 +1,8 @@
+/* Theme */
+:root{
+  --color-main: #80A087;
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  --color-black-opacity-50: rgba(0, 0, 0, 0.5);
+  --color-white-opacity-50: rgba(255, 255, 255, 0.5);
+}
