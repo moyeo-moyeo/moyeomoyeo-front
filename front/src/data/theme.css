@@ -1,0 +1,7 @@
+:root {
+    --color-main: #94BF8D;
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-white-opacity-50: rgb(255,255,255,0.5);
+    --color-black-opacity-50: rgb(0,0,0,0.5);
+}
