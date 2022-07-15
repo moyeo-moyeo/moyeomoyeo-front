@@ -68,3 +68,85 @@
   text-align: center;
   background-color: var(--color-main);
 }
+
+.joinInputBtn {
+  margin-top: 5px;
+  width: 238px;
+  height: 23px;
+  font-size: 20px;
+  padding: 5px;
+  border: 1px solid var(--color-black-opacity-50);
+
+}
+
+.joinInput {
+  margin-top: 5px;
+  width: 338px;
+  height: 23px;
+  font-size: 20px;
+  padding: 5px;
+  border: 1px solid var(--color-black-opacity-50);
+
+}
+
+.joinDuplBtn {
+  margin-top: 5px;
+  margin-left: 5px;
+  width: 95px;
+  height: 35px;
+  border: 0px solid var(--color-black-opacity-50);
+  font-size: 20px;
+  background-color: var(--color-main);
+  color: var(--color-white);
+}
+
+.Contry {
+  width: 250px;
+  height: 23px;
+}
+
+.Telecom {
+  margin-left: 5px;
+  width: 95px;
+  height: 23px;
+}
+
+.joinBtn {
+  margin-top: 25px;
+  width: 350px;
+  height: 50px;
+  border: 0px solid var(--color-black-opacity-50);
+  font-size: 20px;
+  background-color: var(--color-main);
+  color: var(--color-white);
+  border-radius: 20px;
+}
+
+.loginInputBtn {
+  margin-top: 5px;
+  width: 338px;
+  height: 23px;
+  font-size: 20px;
+  padding: 5px;
+  border: 1px solid var(--color-black-opacity-50);
+}
+
+.loginInput {
+  margin-top: 5px;
+  width: 338px;
+  height: 23px;
+  font-size: 20px;
+  padding: 5px;
+  border: 1px solid var(--color-black-opacity-50);
+}
+
+.loginBtn{
+  margin-top: 25px;
+  width: 350px;
+  height: 50px;
+  border: 0px solid var(--color-black-opacity-50);
+  font-size: 20px;
+  background-color: var(--color-main);
+  color: var(--color-white);
+  border-radius: 20px;
+}

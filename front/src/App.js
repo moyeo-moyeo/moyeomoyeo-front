@@ -1,17 +1,20 @@
 import './App.css';
-import Header from './components/Header';
-import Nav from './components/Nav';
-import Article from './components/Article';
-import Footer from './components/Footer';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Join from "./pages/Join";
+import Login from "./pages/Login";
+// import axios from 'axios';
+
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Nav />
-      <Article />
-      <Footer />
-    </div>
+      <BrowserRouter basename="">
+        <Routes>     
+          <Route path = "/" element = {<Home />}/>
+          <Route path = "/Join" element = {<Join />}/>
+          <Route path = "/Login" element = {<Login />}/>
+        </Routes>
+      </BrowserRouter>
   );
 }
 
