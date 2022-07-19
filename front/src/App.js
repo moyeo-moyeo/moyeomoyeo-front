@@ -9,9 +9,9 @@ import Division from './components/Division';
 import Login from './components/Login'
 import Search from './components/Search'
 import Join from './components/Join'
+import Friend from './components/Friend'
 
 function App() {
-
   let article = null;
   const [mode, setMode] = useState("map-btn");
 
@@ -39,6 +39,8 @@ function App() {
     article = <>test</>
   }
 
+  let friend = <Friend/>
+
   console.log(mode);
   return (
     <div className="App">
@@ -49,6 +51,7 @@ function App() {
         setMode(className);
       }}/>
       {article}
+      {friend}
       <Footer />
     </div>
   );
