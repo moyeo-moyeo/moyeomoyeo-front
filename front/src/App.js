@@ -1,15 +1,7 @@
 import './App.css';
 import React,{useState} from 'react';
 // import axios from 'axios';
-import Header from './components/Header';
-import Nav from './components/Nav';
-import Map from './components/Map';
-import Footer from './components/Footer';
-import Division from './components/Division';
-import Login from './components/Login'
-import Search from './components/Search'
-import Join from './components/Join'
-import Friend from './components/Friend'
+import {Header, Nav, Map, Footer, Division, Login, Search, Join, Friend} from './components/main';
 
 function App() {
   let article = null;

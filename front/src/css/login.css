@@ -1,0 +1,50 @@
+.login-article{
+  position: absolute;
+  top: 200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login-title{
+  font-size: 60px;
+  margin: 0;
+  padding: 0;
+}
+.login-id-input{
+  padding : 5px;
+  border: 1px solid var(--color-black);
+  width : 338px;
+  height : 23px;
+  font-size: 20px;
+}
+.login-pw-input{
+  padding : 5px;
+  border: 1px solid var(--color-black);
+  width : 338px;
+  height : 23px;
+  font-size: 20px;
+}
+.login-article form p{
+  margin-top: 35px;
+  font-size: 25px;
+}
+.login-submit{
+  display: block;
+  margin-top: 35px;
+  background-color: var(--color-main);
+  color: var(--color-white);
+  font-size: 30px;
+  padding : 5px;
+  border : 0;
+  width : 350px;
+  height : 50px;
+  border-radius: 20px;
+}
+.pop-up-btn{
+  margin-top: 20px;
+}
+.pop-up-btn a{
+  text-decoration: none;
+  color: var(--color-black);
+}
