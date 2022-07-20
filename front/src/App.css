@@ -472,6 +472,11 @@
 .FriendImge{
   margin: 2px;
   width: 45px;
+  transition: 0.2s;
+}
+.FriendBtn:hover .FriendImge,
+.FriendBtn:focus .FriendImge{
+  margin: 5px;
 }
 .FriendDiv{
   position: absolute;
@@ -485,9 +490,4 @@
   justify-content: center;
   align-items: center;
   display: none;
-  transition: 1s;
-}
-.FriendBtn.active .FriendDiv{
-  display: block;
-  width: 250px;
 }
