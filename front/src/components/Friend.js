@@ -9,11 +9,11 @@ export default function Friend(props) {
     setHandler(!handler);
   }}>
     <img className='FriendImge' src={FriendImg} alt='FriendBtn'></img>
-  <div className='FriendDiv'>
-    <p>test1</p>
-    <p>test1</p>
-    <p>test1</p>
-  </div>
+    <div className='FriendDiv'>
+      <p>test1</p>
+      <p>test1</p>
+      <p>test1</p>
+    </div>
   </div>
   </>
 }
