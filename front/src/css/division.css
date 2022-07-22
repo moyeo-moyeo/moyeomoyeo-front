@@ -132,9 +132,8 @@
 .output-share{
   position: absolute;
   top: 100px;
-  left: 500px;
-  margin: 0 20px 0 290px;
-  width: 130px;
+  right: 110px;
+  width: 80px;
   height: 45px;
   border: 0;
   padding: 0;
@@ -146,9 +145,8 @@
 .output-clear{
   position: absolute;
   top: 100px;
-  left: 600px;
-  margin: 0 10px 0 0;
-  width: 150px;
+  right: 0px;
+  width: 100px;
   height: 45px;
   border: 0;
   padding: 0;
