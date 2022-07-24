@@ -7,6 +7,7 @@
 @import url("./css/footer.css");
 @import url("./css/nav.css");
 @import url("./css/header.css");
+@import url("./css/myPage.css");
 
 .article{
   z-index: -1;

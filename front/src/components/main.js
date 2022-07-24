@@ -7,5 +7,6 @@ import Login from './Login';
 import Search from './Search';
 import Join from './Join';
 import Friend from './Friend';
+import MypageUi from './MypageUi';
 
-export { Header, Nav, Map, Footer, Division, Login, Search, Join, Friend};
+export { Header, Nav, Map, Footer, Division, Login, Search, Join, Friend, MypageUi };

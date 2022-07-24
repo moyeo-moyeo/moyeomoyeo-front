@@ -1,0 +1,42 @@
+.article{
+  height: 90%;
+}
+.myPage_article {
+  position: absolute;
+  margin-top: 50px;
+  width: 352px;
+  height: 100%;
+  border-right: 1px solid var(--color-black-opacity-50);
+  box-shadow: 8px 3px .4em var(--color-black-opacity-50);
+}
+
+.myPage_article p {
+  display : flex;
+  justify-content : center;
+  align-items: center;
+  flex-direction: column;
+  width: 352px;
+  height: 191px;
+  font-size: 25px;
+}
+
+.mypage_line {
+  width: 352px;
+  height: 1px;
+  background-color: var(--color-black-opacity-50);
+}
+.mypage_list {
+ margin-top: 30px;
+}
+.mypage_list a {
+  display : flex;
+  justify-content : center;
+  align-items: center;
+  flex-direction: column;
+  width: 352px;
+  height: 50px;
+  margin-bottom: 10px;
+  font-size: 25px;
+  text-decoration: none;
+  color: var(--color-black);
+}
