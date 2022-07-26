@@ -8,6 +8,7 @@
 @import url("./css/nav.css");
 @import url("./css/header.css");
 @import url("./css/myPage.css");
+@import url("./css/map.css");
 
 .article{
   z-index: -1;
