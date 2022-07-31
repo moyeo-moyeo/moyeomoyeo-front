@@ -1,16 +1,29 @@
 import './App.css';
 import React,{useState} from 'react';
 // import axios from 'axios';
-import {Header, Nav, Map, Footer, Division, Login, Search, Join, Friend, MypageUi } from './components/main';
+import {Header, Nav, Map, Footer, Division, Login, Search, Join, Friend, MypageUi, CenterSearch} from './components/main';
 
 function App() {
   let article = null;
-  const [mode, setMode] = useState("map-btn");
+  const [mode, setMode] = useState("index");
+  const [moyeoList,setMoyeoList] = useState([ //setMoyeoList는 약속추가하기, 새로운 약속잡기를 통해 사용될 예정
+    {key : 1, title : "회운님과 약속", peoples : "(2)", value : ["장준수","정회운"]},
+    {key : 2, title : "다솜님과 약속", peoples : "(2)", value : ["장준수","이다솜"]},
+    {key : 3, title : "프로젝트 약속", peoples : "(5)", value : ["장준수","정회운","이다솜","최강현","황수경"]}
+  ]);
 
-  if(mode === "map-btn" || mode === "logout"){
-    article = <Map/>
+  const [activeList,setActiveList] = useState();
+  console.log(activeList);
+  console.log(mode);
+
+  if(mode === "index"){
+    article = <Map moyeoList={moyeoList} onChange={(id)=>{
+      setActiveList(id);
+    }}/>
+  }else if(mode === "center-search"){
+    article = <CenterSearch />
   }else if(mode === "calculator"){
-    article = <Division/>
+    article = <Division moyeoList={moyeoList}/>
   }else if(mode === "login"){
     article = <Login onChange={(id) =>{
       setMode(id);
@@ -32,8 +45,6 @@ function App() {
   }
 
   let friend = <Friend/>
-
-  console.log(mode);
   return (
     <div className="App">
       <Header onChange={(className)=>{

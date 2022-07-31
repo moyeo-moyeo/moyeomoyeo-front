@@ -1,7 +1,7 @@
 export default function Nav(props) {
 
   return <nav className="nav">
-    <a href='/' className="map-btn" onClick={(event)=>{
+    <a href='/' className="center-search" onClick={(event)=>{
       event.preventDefault();
       props.onChange(event.target.className);
     }}>너와 나의 중간지점 찾기</a>

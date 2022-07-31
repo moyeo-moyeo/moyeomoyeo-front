@@ -13,10 +13,10 @@
   text-decoration: none;
   color: var(--color-black-opacity-50);
 }
-.map-btn{
+.center-search{
   margin-left: 10px;
 }
-.map-btn::after{
+.center-search::after{
   margin: 0 10px 0 10px;
   content: "l";
 }
