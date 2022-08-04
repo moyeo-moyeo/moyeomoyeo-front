@@ -30,28 +30,28 @@ export default function Map(props) {
     <div className="map_wrap">
       <ul id="category">
           <li id="CS2" data-order="0"> 
-              <span className="category_bg 24store"></span>
-              편의점
+              <span className="category_bg store"></span>
+              <span>편의점</span>
           </li>       
           <li id="SW8" data-order="1"> 
               <span className="category_bg food"></span>
-              지하철
+              <span>지하철</span>
           </li>    
           <li id="AT4" data-order="2"> 
               <span className="category_bg tour"></span>
-              관광
+              <span>관광</span>
           </li>  
           <li id="FD6" data-order="3"> 
-              <span className="category_bg foods"></span>
-              음식점
+              <span className="category_bg food"></span>
+              <span>음식점</span>
           </li>  
           <li id="CE7" data-order="4"> 
               <span className="category_bg cafe"></span>
-              카페
+              <span>카페</span>
           </li>   
           <li id="OL7" data-order="5"> 
               <span className="category_bg oil"></span>
-              주유소
+              <span>주유소</span>
           </li>      
       </ul>
     </div>

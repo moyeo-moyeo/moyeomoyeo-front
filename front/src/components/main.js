@@ -8,6 +8,6 @@ import Search from './Search';
 import Join from './Join';
 import Friend from './Friend';
 import MypageUi from './MypageUi';
-import CenterSearch from './CenterSearch';
+import NewMeeting from './NewMeeting';
 
-export { Header, Nav, Map, Footer, Division, Login, Search, Join, Friend, MypageUi, CenterSearch };
+export { Header, Nav, Map, Footer, Division, Login, Search, Join, Friend, MypageUi, NewMeeting };

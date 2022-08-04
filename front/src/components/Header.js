@@ -24,7 +24,10 @@ export default function Header(props) {
 
   return <header className="header">
     <a href='/' className="brand-name">모여모여</a>
-    <a href='/'><img src={Logo} className="logo" alt='logo'/></a>
+    <a href='/'><img src={Logo} className="logo" alt='logo' onClick={(event)=>{
+      event.preventDefault();
+      props.onChange("index");
+      }}/></a>
     {login}
   </header>
 }

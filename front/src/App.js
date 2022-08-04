@@ -1,7 +1,7 @@
 import './App.css';
 import React,{useState} from 'react';
 // import axios from 'axios';
-import {Header, Nav, Map, Footer, Division, Login, Search, Join, Friend, MypageUi, CenterSearch} from './components/main';
+import {Header, Nav, Map, Footer, Division, Login, Search, Join, Friend, MypageUi, NewMeeting} from './components/main';
 
 function App() {
   let article = null;
@@ -16,12 +16,18 @@ function App() {
   console.log(activeList);
   console.log(mode);
 
+  const [myInfomation,setMyInfomation] = useState({
+    idKey : 0, id : "admin", password : "admin1234", name : "장준수", nickName : "운영자"
+  });
+
   if(mode === "index"){
     article = <Map moyeoList={moyeoList} onChange={(id)=>{
       setActiveList(id);
     }}/>
   }else if(mode === "center-search"){
-    article = <CenterSearch />
+    article = <><Map moyeoList={moyeoList} onChange={(id)=>{
+      setActiveList(id);
+    }}/><NewMeeting myInfomation={myInfomation}/></>
   }else if(mode === "calculator"){
     article = <Division moyeoList={moyeoList}/>
   }else if(mode === "login"){

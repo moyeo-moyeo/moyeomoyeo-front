@@ -9,6 +9,7 @@
 @import url("./css/header.css");
 @import url("./css/myPage.css");
 @import url("./css/map.css");
+@import url("./css/NewMeeting.css");
 
 .article{
   z-index: -1;
