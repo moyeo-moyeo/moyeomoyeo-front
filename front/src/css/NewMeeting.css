@@ -35,3 +35,32 @@
   text-decoration: none;
   color: var(--color-black);
 }
+.newMeetingBtn {
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  width: 400px;
+  bottom: 20px;
+}
+#newMeetingFriends,
+#newMeetingAdd{
+  background-color: var(--color-main);
+  border: 0;
+  border-radius: 10px;
+  height: 50px;
+  font-size: 20px;
+  color: var(--color-white);
+}
+#newMeetingFriends{
+  width: 130px;
+}
+#newMeetingAdd{
+  width: 100px;
+}
+.closeNewMeeting{
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  text-decoration: none;
+  font-size: 30px;
+}

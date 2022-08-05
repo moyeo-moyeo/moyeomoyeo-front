@@ -27,7 +27,9 @@ function App() {
   }else if(mode === "center-search"){
     article = <><Map moyeoList={moyeoList} onChange={(id)=>{
       setActiveList(id);
-    }}/><NewMeeting myInfomation={myInfomation}/></>
+    }}/><NewMeeting myInfomation={myInfomation} onChange={(id)=>{
+      setMode(id)
+    }}/></>
   }else if(mode === "calculator"){
     article = <Division moyeoList={moyeoList}/>
   }else if(mode === "login"){

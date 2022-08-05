@@ -8,7 +8,15 @@ export default function NewMeeting(props) {
   return <div className="newMeetingBackground">
     <div className="newMeeting">
       <h2>새로운 약속 만들기</h2>
+      <a href="/" className="closeNewMeeting" onClick={event => {
+        event.preventDefault();
+        props.onChange("index");
+      }}>X</a>
       {newMeetingFriends}
+      <div className="newMeetingBtn">
+        <button id="newMeetingFriends">인원 추가하기</button>
+        <button id="newMeetingAdd">약속 생성</button>
+      </div>
     </div>
   </div>
 }
