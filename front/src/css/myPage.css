@@ -2,6 +2,7 @@
   height: 90%;
 }
 .myPage_article {
+  z-index: 1;
   position: absolute;
   margin-top: 50px;
   width: 352px;
@@ -47,12 +48,15 @@
   top: 100px;
   left: 500px;
 }
-.mypage_modify h2{
+.mypage_modify h2,
+.mypage_history h2{
   font-size: 40px;
 }
 .mypage_id,
 .mypage_modify_name,
-.mypage_modify_pw{
+.mypage_modify_pw,
+.mypage_delete{
+  position: relative;
   border: 2px solid var(--color-main);
   border-radius: 20px;
   width: 960px;
@@ -66,16 +70,58 @@
 }
 .mypage_id p,
 .mypage_modify_name p,
-.mypage_modify_pw p{
+.mypage_modify_pw p,
+.mypage_delete p{
   font-size: 30px;
   display: inline;
   margin-right: 50px;
 }
-.modifyBtn{
+.modifyBtn,
+.deleteAccountBtn{
   background-color: #F2F2F2;
   border: 0;
   border-radius: 10px;
   width: 60px;
   height: 40px;
+  font-size: 20px;
+}
+.checkDeleteAccount{
+  position: absolute;
+  top: 37px;
+  width: 200px;
+  height: 25px;
+}
+.mypage_history{
+  z-index: -2;
+  position: absolute;
+  background-color: var(--color-white);
+  height: 98%;
+  left: 353px;
+  top: 50px;
+  box-shadow: 8px 3px .4em var(--color-black-opacity-50);
+}
+.mypage_history h2{
+  margin: 80px 0 0 0;
+  padding-bottom: 50px;
+  border-bottom: 1px solid var(--color-black);
+}
+.mypage_history h2,
+.historyList ul li{
+  padding-left: 50px;
+}
+.historyList{
+  width: 250px;
+}
+.historyList ul{
+  list-style: none;
+  margin: 0;
+  padding: 0px;
+}
+.historyList ul li{
+  margin-top: 20px;
+}
+.historyList ul li a{
+  text-decoration: none;
+  color: var(--color-black);
   font-size: 20px;
 }

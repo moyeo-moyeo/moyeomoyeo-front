@@ -1,8 +1,28 @@
 import React,{useState} from 'react';
 
+function History(props) {
+  let historyList = [];
+  let listSet = props.moyeoList;
+  for(let i = 0; i < props.moyeoList.length; i++){
+    historyList.push(<li key={listSet[i].key} className='moyeo-list'>
+      <a id={'/moyeoList/'+listSet[i].key} href={'/entryList/'+listSet[i].key} onClick={event =>{
+      event.preventDefault();
+      props.onChangeMode(event.target.id);
+    }}>{listSet[i].title}</a></li>);
+  }
+
+  return <div className='historyList'>
+    <ul>
+      {historyList}
+    </ul>
+  </div>
+}
+
 export default function MypageUi(props) {
   let myPageBody = null;
-  const [myPage,setMyPage] = useState("myPage");
+  const [myPage,setMyPage] = useState(props.mode);
+  const [historyMode,setHistoryMode] = useState();
+  console.log(historyMode);
   
   if(myPage === "myPage"){
     myPageBody = <div className="mypage_test">
@@ -30,12 +50,22 @@ export default function MypageUi(props) {
       </div>
     </div>
   }else if(myPage === "mypage_delete_data"){
-    myPageBody = <div className="mypage_test">
-      <p>회원 탈퇴</p>
+    myPageBody = <div className="mypage_modify">
+      <h2>정말 회원을 탈퇴하시겠습니까?</h2>
+      <div className='mypage_delete'>
+        <div>
+          <p>회원탈퇴 확인</p>
+          <input type="text" className='checkDeleteAccount' placeholder="이름을 입력해 주세요."></input>
+        </div>
+        <button className='deleteAccountBtn'>탈퇴</button>
+      </div>
     </div>
-  }else if(myPage === "history"){
-    myPageBody = <div className="mypage_test">
-      <p>History</p>
+  }else if(myPage === "history" || myPage === "myPage_history"){
+    myPageBody = <div className="mypage_history">
+      <h2>History</h2>
+      <History moyeoList={props.moyeoList} onChangeMode={id=>{
+        setHistoryMode(id);
+      }}/>
     </div>
   }
   
