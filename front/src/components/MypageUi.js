@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 
-export default function MypageUi() {
+export default function MypageUi(props) {
   let myPageBody = null;
   const [myPage,setMyPage] = useState("myPage");
   
@@ -9,8 +9,25 @@ export default function MypageUi() {
     <p>내 정보</p>
   </div>
   }else if(myPage === "mypage_fix_data"){
-    myPageBody = <div className="mypage_test">
-      <p>회원 수정</p>
+    myPageBody = <div className="mypage_modify">
+      <h2>회원 수정</h2>
+      <div className='mypage_id'>
+        <div>
+          <p>아이디</p>
+          <p>{props.myInfomation.id}</p>
+        </div>
+      </div>
+      <div className='mypage_modify_name'>
+        <div>
+          <p>닉네임</p>
+          <p>{props.myInfomation.name}</p>
+        </div>
+        <button className='modifyBtn'>수정</button>
+      </div>
+      <div className='mypage_modify_pw'>
+        <p>비밀번호</p>
+        <button className='modifyBtn'>수정</button>
+      </div>
     </div>
   }else if(myPage === "mypage_delete_data"){
     myPageBody = <div className="mypage_test">

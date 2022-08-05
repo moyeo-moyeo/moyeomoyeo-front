@@ -42,8 +42,40 @@
   text-decoration: none;
   color: var(--color-black);
 }
-.mypage_test{
+.mypage_modify{
   position: absolute;
   top: 100px;
-  left: 430px;
+  left: 500px;
+}
+.mypage_modify h2{
+  font-size: 40px;
+}
+.mypage_id,
+.mypage_modify_name,
+.mypage_modify_pw{
+  border: 2px solid var(--color-main);
+  border-radius: 20px;
+  width: 960px;
+  height: 60px;
+  margin-bottom: 50px;
+  padding: 20px;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  
+}
+.mypage_id p,
+.mypage_modify_name p,
+.mypage_modify_pw p{
+  font-size: 30px;
+  display: inline;
+  margin-right: 50px;
+}
+.modifyBtn{
+  background-color: #F2F2F2;
+  border: 0;
+  border-radius: 10px;
+  width: 60px;
+  height: 40px;
+  font-size: 20px;
 }

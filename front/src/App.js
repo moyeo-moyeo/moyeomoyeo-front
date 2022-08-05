@@ -47,9 +47,9 @@ function App() {
       setMode(id);
     }}/></>
   }else if(mode === "myPage"){
-    article = <MypageUi/>
+    article = <MypageUi myInfomation={myInfomation}/>
   }else if(mode === "myPage_history"){
-    article = <MypageUi/>
+    article = <MypageUi myInfomation={myInfomation}/>
   }
 
   let friend = <Friend/>
