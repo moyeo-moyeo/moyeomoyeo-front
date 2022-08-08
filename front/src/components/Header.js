@@ -18,7 +18,7 @@ export default function Header(props) {
     <a href='/' id='logout' className="login" onClick={(event)=>{
       event.preventDefault();
       setLoginState("unlogin");
-      props.onChange(event.target.id);
+      props.onChange("index");
     }}>로그아웃</a></>
   }
 

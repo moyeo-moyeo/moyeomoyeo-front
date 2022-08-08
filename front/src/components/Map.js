@@ -34,15 +34,15 @@ export default function Map(props) {
               <span>편의점</span>
           </li>       
           <li id="SW8" data-order="1"> 
-              <span className="category_bg food"></span>
+              <span className="category_bg bank"></span>
               <span>지하철</span>
           </li>    
           <li id="AT4" data-order="2"> 
-              <span className="category_bg tour"></span>
+              <span className="category_bg bank"></span>
               <span>관광</span>
           </li>  
           <li id="FD6" data-order="3"> 
-              <span className="category_bg food"></span>
+              <span className="category_bg bank"></span>
               <span>음식점</span>
           </li>  
           <li id="CE7" data-order="4"> 

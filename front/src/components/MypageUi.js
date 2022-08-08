@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 
-function History(props) {
+function HistoryList(props) {
   let historyList = [];
   let listSet = props.moyeoList;
   for(let i = 0; i < props.moyeoList.length; i++){
@@ -12,9 +12,21 @@ function History(props) {
   }
 
   return <div className='historyList'>
+    <h2>History</h2>
     <ul>
       {historyList}
     </ul>
+  </div>
+}
+
+function HistoryBody(props){
+  
+
+  return <div className='historyBody'>
+    <div className='meetAdress'>중간 지점</div>
+    <div className='meetFirend'>만난 친구</div>
+    <div className='meetStore'>방문한 곳</div>
+    <div className='meetDivision'>정산</div>
   </div>
 }
 
@@ -24,11 +36,7 @@ export default function MypageUi(props) {
   const [historyMode,setHistoryMode] = useState();
   console.log(historyMode);
   
-  if(myPage === "myPage"){
-    myPageBody = <div className="mypage_test">
-    <p>내 정보</p>
-  </div>
-  }else if(myPage === "mypage_fix_data"){
+  if(myPage === "mypage_fix_data" || myPage === "myPage"){
     myPageBody = <div className="mypage_modify">
       <h2>회원 수정</h2>
       <div className='mypage_id'>
@@ -62,10 +70,10 @@ export default function MypageUi(props) {
     </div>
   }else if(myPage === "history" || myPage === "myPage_history"){
     myPageBody = <div className="mypage_history">
-      <h2>History</h2>
-      <History moyeoList={props.moyeoList} onChangeMode={id=>{
+      <HistoryList moyeoList={props.moyeoList} onChangeMode={id=>{
         setHistoryMode(id);
       }}/>
+      <HistoryBody historyMode={historyMode}/>
     </div>
   }
   
