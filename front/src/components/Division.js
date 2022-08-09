@@ -20,9 +20,8 @@ function SelectList(props) {
 }
 
 function MainCalculator(props) {
-  let mainSection = null;
-  let value = null;
-  let answer = null;
+  let mainSection,value,answer,persons,place,payment = null;
+  const [payList,setPayList] = useState([]);
   for(let i = 0; i < props.moyeoList.length; i++){
     let data = props.moyeoList[i];
     if(props.calculator === '/moyeoList/'+data.key){
@@ -46,23 +45,29 @@ function MainCalculator(props) {
         <div className='main-section-input'>
           <p className='input-title'>입력</p>
           <p className='pay-person'>결제 한 사람</p>
-          <select className='pay-persons' name='people'>
-            {value}
-          </select>
           <form className='input-form'>
+            <select id='pay-persons' className='pay-persons' name='people'>
+              {value}
+            </select>
             <p>사용처</p>
-            <input className='input-place'></input>
+            <input id='input-place' className='input-place'></input>
             <p>결제금액</p>
-            <input className='input-payment' type='text' name='payment'></input>
+            <input id='input-payment' className='input-payment' type='text' name='payment'></input>
             <input className='input-submit' type='submit' value='계산 추가하기' onClick={event => {
               event.preventDefault();
+              persons = document.getElementById('pay-persons').value;
+              place = document.getElementById('input-place').value;
+              payment = document.getElementById('input-payment').value;
+              setPayList([...payList,<li className='output-list'><span className='output-persons'>{persons}</span><span className='output-place'>{place}</span><span className='output-payment'>{payment.toString()
+                .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")+"원"}</span></li>]);
+              console.log(payList);
             }}></input>
           </form>
         </div>
         <div className='main-section-output'>
           <p className='output-title'>계산</p>
           <p className='pay-list'>결제 목록</p>
-          <div className='pay-list-box'></div>
+          <div className='pay-list-box'><ul>{payList}</ul></div>
           <p className='output-answer'>계산 결과</p>
           {answer}
           <button className='output-share'>공유</button>

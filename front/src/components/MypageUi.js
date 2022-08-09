@@ -63,7 +63,7 @@ export default function MypageUi(props) {
       <div className='mypage_delete'>
         <div>
           <p>회원탈퇴 확인</p>
-          <input type="text" className='checkDeleteAccount' placeholder="이름을 입력해 주세요."></input>
+          <input type="text" className='checkDeleteAccount' placeholder="비밀번호를 입력해 주세요."></input>
         </div>
         <button className='deleteAccountBtn'>탈퇴</button>
       </div>

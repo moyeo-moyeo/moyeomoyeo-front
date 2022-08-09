@@ -6,6 +6,9 @@ import {Header, Nav, Map, Footer, Division, Login, Search, Join, Friend, MypageU
 function App() {
   let article = null;
   const [mode, setMode] = useState("index");
+  const [friendMode,setFriendMode] = useState("friendList");
+  const [friendHandler,setFriendHandler] = useState(false);
+  const [newMeetingBtn,setNewMeetingBtn] = useState("make");
   const [moyeoList,setMoyeoList] = useState([ //setMoyeoList는 약속추가하기, 새로운 약속잡기를 통해 사용될 예정
     {key : 1, title : "회운님과 약속", peoples : "(2)", value : ["장준수","정회운"]},
     {key : 2, title : "다솜님과 약속", peoples : "(2)", value : ["장준수","이다솜"]},
@@ -29,6 +32,12 @@ function App() {
       setActiveList(id);
     }}/><NewMeeting myInfomation={myInfomation} onChange={(id)=>{
       setMode(id)
+    }} onFriendMode={(id)=>{
+      setFriendMode(id);
+    }} onClose={(handleId)=>{
+      setFriendHandler(handleId);
+    }} onMode={(btnId)=>{
+      setNewMeetingBtn(btnId);
     }}/></>
   }else if(mode === "calculator"){
     article = <Division moyeoList={moyeoList}/>
@@ -52,7 +61,6 @@ function App() {
     article = <MypageUi myInfomation={myInfomation} moyeoList={moyeoList} mode={mode}/>
   }
 
-  let friend = <Friend/>
   return (
     <div className="App">
       <Header onChange={(className)=>{
@@ -62,7 +70,19 @@ function App() {
         setMode(className);
       }}/>
       {article}
-      {friend}
+      <Friend friendMode={friendMode} friendHandler={friendHandler} newMeetingBtn={newMeetingBtn}
+      onChange={(id)=>{
+        setFriendMode(id);
+      }}
+      onClose={(handleId)=>{
+        setFriendHandler(handleId);
+      }}
+      onMode={(btnId)=>{
+        setNewMeetingBtn(btnId)
+      }}
+      onNewMeeting={(id)=>{
+        setMode(id);
+      }}/>
       <Footer />
     </div>
   );

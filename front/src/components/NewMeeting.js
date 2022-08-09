@@ -14,7 +14,12 @@ export default function NewMeeting(props) {
       }}>X</a>
       {newMeetingFriends}
       <div className="newMeetingBtn">
-        <button id="newMeetingFriends">인원 추가하기</button>
+        <button id="newMeetingFriends" onClick={event=>{
+          event.preventDefault();
+          props.onFriendMode("friendList");
+          props.onClose(true);
+          props.onMode("making");
+        }}>인원 추가하기</button>
         <button id="newMeetingAdd">약속 생성</button>
       </div>
     </div>
