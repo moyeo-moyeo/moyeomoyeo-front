@@ -20,11 +20,18 @@ function HistoryList(props) {
 }
 
 function HistoryBody(props){
+  let historyContents = [];
+  let key = String(props.historyMode);
+  let keyNum = key[key.length-1]-1;
+  let moyeoListValues = props.moyeoList[keyNum].value;
+  for(let i = 0; i < moyeoListValues.length; i++){
+    historyContents.push(<p key={i}>{props.moyeoList[keyNum].value[i]}</p>);
+  }
   
-
   return <div className='historyBody'>
     <div className='meetAdress'>중간 지점</div>
     <div className='meetFirend'>만난 친구</div>
+    {historyContents}
     <div className='meetStore'>방문한 곳</div>
     <div className='meetDivision'>정산</div>
   </div>
@@ -33,8 +40,7 @@ function HistoryBody(props){
 export default function MypageUi(props) {
   let myPageBody = null;
   const [myPage,setMyPage] = useState(props.mode);
-  const [historyMode,setHistoryMode] = useState();
-  console.log(historyMode);
+  const [historyMode,setHistoryMode] = useState(1);
   
   if(myPage === "mypage_fix_data" || myPage === "myPage"){
     myPageBody = <div className="mypage_modify">
@@ -73,7 +79,7 @@ export default function MypageUi(props) {
       <HistoryList moyeoList={props.moyeoList} onChangeMode={id=>{
         setHistoryMode(id);
       }}/>
-      <HistoryBody historyMode={historyMode}/>
+      <HistoryBody historyMode={historyMode} moyeoList={props.moyeoList}/>
     </div>
   }
   

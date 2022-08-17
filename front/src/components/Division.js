@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 
 function SelectList(props) {
   const list = [];
@@ -21,7 +21,22 @@ function SelectList(props) {
 
 function MainCalculator(props) {
   let mainSection,value,answer,persons,place,payment = null;
+  const [paymentList,setPaymentList] = useState([]);
   const [payList,setPayList] = useState([]);
+  const [sumMoney,setSumMoney] = useState();
+  useEffect(()=>{
+    console.log(paymentList[paymentList.length-1]);
+    let newList = paymentList[paymentList.length-1];
+    for(let j = 0; j < props.moyeoList.length; j++){
+      let data = props.moyeoList[j];
+      for(let i = 0; i < data.value.length; i++){
+        if(newList.persons === data.value[i] && sumMoney.length === 0){
+          setSumMoney({id : newList.persons, pay : newList.payment});
+        }
+      }
+    }
+    console.log(sumMoney);
+  },[paymentList])
   for(let i = 0; i < props.moyeoList.length; i++){
     let data = props.moyeoList[i];
     if(props.calculator === '/moyeoList/'+data.key){
@@ -32,7 +47,7 @@ function MainCalculator(props) {
           </option>
         </>;
         answer = <>{answer}
-        <p className='output-answer-list'>{data.value[j]}님은 000원을 계산하셨습니다.</p>
+        <p className='output-answer-list'>{data.value[j]}님은 {sumMoney}원을 계산하셨습니다.</p>
         </>
       }
       answer = <>{answer}
@@ -58,9 +73,9 @@ function MainCalculator(props) {
               persons = document.getElementById('pay-persons').value;
               place = document.getElementById('input-place').value;
               payment = document.getElementById('input-payment').value;
-              setPayList([...payList,<li className='output-list'><span className='output-persons'>{persons}</span><span className='output-place'>{place}</span><span className='output-payment'>{payment.toString()
+              setPaymentList([...paymentList,{ persons : {persons}, place : {place}, payment : {payment}}]);
+              setPayList([...payList,<li key={Math.random()} className='output-list'><span className='output-persons'>{persons}</span><span className='output-place'>{place}</span><span className='output-payment'>{payment.toString()
                 .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")+"원"}</span></li>]);
-              console.log(payList);
             }}></input>
           </form>
         </div>
