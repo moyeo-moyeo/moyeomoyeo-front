@@ -219,6 +219,6 @@
   right: 10px;
 }
 .moyeo.active{
- color: var(--color-main-border);
- font-weight: 800;
+ color: var(--color-purple);
+ font-weight: 700;
 }

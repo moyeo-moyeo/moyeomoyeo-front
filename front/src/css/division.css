@@ -113,6 +113,7 @@
   margin: 20px 0 20px 0;
 }
 .pay-list-box{
+  position: relative;
   border: 1px solid var(--color-black);
   width: 500px;
   height: 300px;
@@ -166,5 +167,15 @@
   margin-left: 100px;
 }
 .output-payment{
+  float: right;
+}
+.sumMoney{
+  position: absolute;
+  bottom: 30px;
+  left: 0px;
+  width: 460px;
+  margin: 0 0 0 40px;
+}
+.totalPayment{
   float: right;
 }

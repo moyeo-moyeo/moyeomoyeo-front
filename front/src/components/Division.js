@@ -23,20 +23,8 @@ function MainCalculator(props) {
   let mainSection,value,answer,persons,place,payment = null;
   const [paymentList,setPaymentList] = useState([]);
   const [payList,setPayList] = useState([]);
-  const [sumMoney,setSumMoney] = useState();
-  useEffect(()=>{
-    console.log(paymentList[paymentList.length-1]);
-    let newList = paymentList[paymentList.length-1];
-    for(let j = 0; j < props.moyeoList.length; j++){
-      let data = props.moyeoList[j];
-      for(let i = 0; i < data.value.length; i++){
-        if(newList.persons === data.value[i] && sumMoney.length === 0){
-          setSumMoney({id : newList.persons, pay : newList.payment});
-        }
-      }
-    }
-    console.log(sumMoney);
-  },[paymentList])
+  const [sumMoney,setSumMoney] = useState(0);
+  console.log(sumMoney);
   for(let i = 0; i < props.moyeoList.length; i++){
     let data = props.moyeoList[i];
     if(props.calculator === '/moyeoList/'+data.key){
@@ -47,7 +35,7 @@ function MainCalculator(props) {
           </option>
         </>;
         answer = <>{answer}
-        <p className='output-answer-list'>{data.value[j]}님은 {sumMoney}원을 계산하셨습니다.</p>
+        <p className='output-answer-list'>{data.value[j]}님은 0원을 계산하셨습니다.</p>
         </>
       }
       answer = <>{answer}
@@ -74,6 +62,7 @@ function MainCalculator(props) {
               place = document.getElementById('input-place').value;
               payment = document.getElementById('input-payment').value;
               setPaymentList([...paymentList,{ persons : {persons}, place : {place}, payment : {payment}}]);
+              setSumMoney(Number(sumMoney)+Number(payment));
               setPayList([...payList,<li key={Math.random()} className='output-list'><span className='output-persons'>{persons}</span><span className='output-place'>{place}</span><span className='output-payment'>{payment.toString()
                 .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")+"원"}</span></li>]);
             }}></input>
@@ -82,7 +71,8 @@ function MainCalculator(props) {
         <div className='main-section-output'>
           <p className='output-title'>계산</p>
           <p className='pay-list'>결제 목록</p>
-          <div className='pay-list-box'><ul>{payList}</ul></div>
+          <div className='pay-list-box'><ul>{payList}</ul><div className='sumMoney'><span className='totalTitle'>총 결제금액</span><span className='totalPayment'>{sumMoney.toString()
+                .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")+"원"}</span></div></div>
           <p className='output-answer'>계산 결과</p>
           {answer}
           <button className='output-share'>공유</button>
