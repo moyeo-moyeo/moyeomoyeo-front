@@ -1,17 +1,17 @@
-.moyeo_list{
+.moyeo-list{
   position: absolute;
   width: 350px;
   height: 100%;
   background-color: var(--color-white-opacity-90);
   box-shadow: 8px 0px 5px rgba(0, 0, 0, 0.1);
 }
-.map_list_ul{
+.map-list-ul{
   list-style: none;
   position: absolute;
   top: 50px;
   padding-left: 40px;
 }
-.map_moyeo_list{
+.map-moyeo-list{
   padding: 30px 0 30px 0;
   width: 270px;
   font-weight: 400;
@@ -19,11 +19,11 @@
   line-height: 24px;
   border-bottom: 1px solid var(--color-black);
 }
-.map_moyeo_list a{
+.map-moyeo-list a{
   text-decoration: none;
   color: var(--color-black);
 }
-#Map{
+#map{
   z-index: -1;
   width: 100%;
   height: 100%;
@@ -32,13 +32,13 @@
   left: 0px;
   overflow:hidden;
 }
-.map_wrap, .map_wrap * {
+.map-wrap, .map-wrap * {
   margin:0;
   padding:0;
   font-family:'Malgun Gothic',dotum,'돋움',sans-serif;
   font-size:12px;
 }
-.map_wrap {
+.map-wrap {
   position:absolute;
   top: 50px;
   left: 370px;
@@ -87,7 +87,7 @@
   height: 28px;
   text-align: center;
 }
-#category li .category_bg {
+#category li .category-bg {
   background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png) no-repeat;
 }
 #category li .bank {
@@ -108,10 +108,10 @@
 #category li .store {
   background-position: 4px -180px;
 }
-#category li.on .category_bg {
+#category li.on .category-bg {
   background-position-x: -32px;
 }
-.placeinfo_wrap {
+.placeinfo-wrap {
   position:absolute;
   bottom:28px;
   left:-150px;
@@ -130,7 +130,7 @@
   border:0;
   box-shadow:0px 1px 2px #888;
 }
-.placeinfo_wrap .after {
+.placeinfo-wrap .after {
   content:'';
   position:relative;
   margin-left:-12px;
@@ -175,7 +175,7 @@
   font-size:11px;
   margin-top:0;
 }
-.mapBoard {
+.map-board {
   z-index: 2;
   background-color: var(--color-black-opacity-50);
   position:absolute;
@@ -191,27 +191,27 @@
   width: 500px;
   height: 800px;
 }
-.infoTitle {
+.info-title {
   padding-bottom: 30px;
   text-align: center;
   font-size: 30px;
   border-bottom: 1px solid var(--color-black-opacity-50);
 }
-.infoBody {
+.info-body {
   text-align: center;
 }
-.infoAddress {
+.info-address {
   display: block;
   margin: 20px;
 }
-.infoReview {
+.info-review {
   position: absolute;
   bottom: 0px;
   background-color: blue;
   width: 100%;
   height: 400px;
 }
-.closePlaceInfo{
+.close-place-info{
   text-decoration: none;
   color: var(--color-black);
   position: absolute;

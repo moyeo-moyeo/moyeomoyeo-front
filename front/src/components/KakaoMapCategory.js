@@ -1,5 +1,3 @@
-import Division from "./Division";
-
 var placeInfomation;
 
 const { kakao } = window;
@@ -10,7 +8,7 @@ export default function KakaoMapCategory() {
     markers = [], // 마커를 담을 배열입니다
     currCategory = ""; // 현재 선택된 카테고리를 가지고 있을 변수입니다
 
-  var mapContainer = document.getElementById("Map"), // 지도를 표시할 div
+  var mapContainer = document.getElementById("map"), // 지도를 표시할 div
     mapOption = {
       center: new kakao.maps.LatLng(37.464, 126.803), // 지도의 중심좌표
       level: 4, // 지도의 확대 레벨
@@ -20,30 +18,30 @@ export default function KakaoMapCategory() {
   var map = new kakao.maps.Map(mapContainer, mapOption);
 
   // 주소-좌표 변환 객체를 생성합니다
-var geocoder = new kakao.maps.services.Geocoder();
+  var geocoder = new kakao.maps.services.Geocoder();
+  let UserAddress = '서울시 강서구 강서로 17가길 46';
+  // 내 주소로 좌표를 검색합니다
+  geocoder.addressSearch(UserAddress, function(result, status) {
+  // 정상적으로 검색이 완료됐으면 
+    if (status === kakao.maps.services.Status.OK) {
 
-// 내 주소로 좌표를 검색합니다
-geocoder.addressSearch('화곡동 351-89', function(result, status) {
-// 정상적으로 검색이 완료됐으면 
-  if (status === kakao.maps.services.Status.OK) {
+      let coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 
-    let coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+      // 결과값으로 받은 위치를 마커로 표시합니다
+      let marker = new kakao.maps.Marker({
+          map: map,
+          position: coords
+      });
 
-    // 결과값으로 받은 위치를 마커로 표시합니다
-    let marker = new kakao.maps.Marker({
-        map: map,
-        position: coords
-    });
+      // 인포윈도우로 장소에 대한 설명을 표시합니다
+      let infowindow = new kakao.maps.InfoWindow({
+          content: '<div style="width:150px;text-align:center;padding:6px 0;">나의 위치</div>'
+      });
+      infowindow.open(map, marker);
 
-    // 인포윈도우로 장소에 대한 설명을 표시합니다
-    let infowindow = new kakao.maps.InfoWindow({
-        content: '<div style="width:150px;text-align:center;padding:6px 0;">나의 위치</div>'
-    });
-    infowindow.open(map, marker);
-
-    // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-    map.setCenter(coords);
-}});
+      // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+      map.setCenter(coords);
+  }});
   // 장소 검색 객체를 생성합니다
   var ps = new kakao.maps.services.Places(map);
 
@@ -51,7 +49,7 @@ geocoder.addressSearch('화곡동 351-89', function(result, status) {
   kakao.maps.event.addListener(map, "idle", searchPlaces);
 
   // 커스텀 오버레이의 컨텐츠 노드에 css class를 추가합니다
-  contentNode.className = "placeinfo_wrap";
+  contentNode.className = "placeinfo-wrap";
 
   // 커스텀 오버레이의 컨텐츠 노드에 mousedown, touchstart 이벤트가 발생했을때
   // 지도 객체에 이벤트가 전달되지 않도록 이벤트 핸들러로 kakao.maps.event.preventMap 메소드를 등록합니다
@@ -172,7 +170,7 @@ geocoder.addressSearch('화곡동 351-89', function(result, status) {
   }
 
   function showPopup() {
-    const container = document.getElementById("Map");
+    const container = document.getElementById("map");
     const board = document.createElement("div");
     const infomation = document.createElement("div");
     const infoTitle = document.createElement("p");
@@ -181,23 +179,23 @@ geocoder.addressSearch('화곡동 351-89', function(result, status) {
     const infoAddress = document.createElement("span");
     const infoReview = document.createElement("div");
     const closeBtn = document.createElement("a");
-    board.className = "mapBoard";
+    board.className = "map-board";
     board.addEventListener('click', closePupup);
     infomation.className = "infomation";
-    infoTitle.className = "infoTitle";
+    infoTitle.className = "info-title";
     infoTitle.textContent = placeInfomation.place_name;
-    infoBody.className = "infoBody";
-    infoPhone.className = "infoPhone";
+    infoBody.className = "info-body";
+    infoPhone.className = "info-phone";
     infoPhone.textContent = placeInfomation.phone;
-    infoAddress.className = "infoAddress";
+    infoAddress.className = "info-address";
     if(placeInfomation.road_address_name){
       infoAddress.textContent = placeInfomation.road_address_name;
     }else{
       infoAddress.textContent = placeInfomation.address_name;
     }
-    infoReview.className = "infoReview";
+    infoReview.className = "info-review";
     infoReview.textContent = "리뷰";
-    closeBtn.className = "closePlaceInfo";
+    closeBtn.className = "close-place-info";
     closeBtn.href = "/";
     closeBtn.textContent = "X"
     closeBtn.addEventListener('click',event=>{event.preventDefault();closePupup();});
@@ -214,7 +212,7 @@ geocoder.addressSearch('화곡동 351-89', function(result, status) {
   }
   
   function closePupup() {
-    const container = document.getElementById("Map");
+    const container = document.getElementById("map");
     container.removeChild(container.lastChild);
     container.removeChild(container.lastChild);
   }

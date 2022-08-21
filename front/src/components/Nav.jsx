@@ -1,3 +1,5 @@
+import '../css/nav.css';
+
 export default function Nav(props) {
 
   return <nav className="nav">
@@ -9,7 +11,7 @@ export default function Nav(props) {
       event.preventDefault();
       props.onChange(event.target.className);
     }}>친구랑 N빵 계산하기</a>
-    <a href='/' className="myPage_history" onClick={(event)=>{
+    <a href='/' className="mypage-history" onClick={(event)=>{
       event.preventDefault();
       props.onChange(event.target.className);
     }}>과거사용내역</a>

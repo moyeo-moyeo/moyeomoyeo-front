@@ -1,4 +1,4 @@
-.FriendBtn{
+.friend-btn{
   position: fixed;
   right: 0px;
   bottom: 60px;
@@ -9,24 +9,24 @@
   padding: 5px;
   transition: 0.2s;
 }
-.FriendBtn:hover,
-.FriendBtn:focus{
+.friend-btn:hover,
+.friend-btn:focus{
   width: 55px;
   height: 55px;
 }
-.FriendBtn.active{
+.friend-btn.active{
   right: 250px;
 }
-.FriendImge{
+.friend-image{
   margin: 2px;
   width: 45px;
   transition: 0.2s;
 }
-.FriendBtn:hover .FriendImge,
-.FriendBtn:focus .FriendImge{
+.friend-btn:hover .friend-image,
+.friend-btn:focus .friend-image{
   margin: 5px;
 }
-.FriendDiv{
+.friend-div{
   position: absolute;
   right: -250px;
   bottom: 0px;
@@ -40,7 +40,7 @@
   justify-content: center;
   align-items: center;
 }
-.FriendExit{
+.friend-exit{
   width: 100%;
   position: absolute;
   top: 0px;
@@ -48,24 +48,24 @@
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
-.FriendExit a{
+.friend-exit a{
   margin: 0px 15px 0 0;
   color: var(--color-white);
   text-decoration: none;
   float: right;
 }
-.FriendNav {
+.friend-nav {
   position: absolute;
   top: 25px;
   border-bottom: 2px solid var(--color-white);
 }
-.FriendNav a{
+.friend-nav a{
   text-decoration: none;
   font-size: 22px;
   color: var(--color-white);
   margin: 0 5px 0 5px;
 }
-.FriendFooter{
+.friend-footer{
   position: absolute;
   bottom: 0px;
   width: 100%;
@@ -75,12 +75,12 @@
   justify-content: space-around;
   align-items: center;
 }
-.FriendFooter a{
+.friend-footer a{
   text-decoration: none;
   color: var(--color-white);
   font-size: 25px;
 }
-.friendUl{
+.friend-ul{
   margin: 0;
   padding: 0;
   position: absolute;
@@ -88,7 +88,7 @@
   left: 20px;
   width: 210px;
 }
-.myFriendsList{
+.my-friends-list{
   list-style: none;
   color: var(--color-white);
   font-size: 20px;
@@ -97,40 +97,40 @@
   justify-content: space-between;
   border-bottom: 1px solid var(--color-white);
 }
-.friendRequest{
+.friend-request{
   list-style: none;
   color: var(--color-white);
   font-size: 20px;
   margin-bottom: 15px;
   border-bottom: 1px solid var(--color-white);
 }
-.friendRequestAnswer,
-.findUserAdd{
+.friend-request-answer,
+.find-user-add{
   display: inline;
   float: right;
 }
-.friendRequestAnswer input{
+.friend-request-answer input{
   margin-left: 10px;
   border: 0px;
   border-radius: 5px;
 }
-.findUserContainer{
+.find-user-container{
   position: absolute;
   top: 60px;
   left: 10px;
   width: 225px;
   height: 300px;
 }
-.findUserForm{
+.find-user-form{
   width: 100%;
 }
-.findUserInput{
+.find-user-input{
   background-color: var(--color-black-opacity-50);
   height: 100%;
   width: 100%;
   border-radius: 10px;
 }
-.findUserSubmit{
+.find-user-submit{
   position: absolute;
   right: -6px;
   top: 0.5px;
@@ -140,7 +140,7 @@
   background-color: var(--color-black-opacity-50);
   color: var(--color-white);
 }
-.findedList{
+.finded-list{
   list-style: none;
   color: var(--color-white);
   font-size: 20px;

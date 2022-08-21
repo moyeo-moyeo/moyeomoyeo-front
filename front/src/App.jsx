@@ -1,7 +1,18 @@
-import './App.css';
 import React,{useState} from 'react';
+import Header from './components/Header';
+import Nav from './components/Nav';
+import Map from './components/Map';
+import Footer from './components/Footer';
+import Division from './components/Division';
+import Login from './components/Login';
+import Search from './components/Search';
+import Join from './components/Join';
+import Friend from './components/Friend';
+import Mypage from './components/Mypage';
+import NewMeeting from './components/NewMeeting';
+import './css/mainPage.css';
+import './css/theme.css';
 // import axios from 'axios';
-import {Header, Nav, Map, Footer, Division, Login, Search, Join, Friend, MypageUi, NewMeeting} from './components/main';
 
 function App() {
   let article = null;
@@ -47,18 +58,18 @@ function App() {
     }}/>
   }else if(mode === "join"){
     article = <Join/>
-  }else if(mode === "search_id" || mode === "search_go_id"){
+  }else if(mode === "search-id" || mode === "search-go-id"){
     article = <><Login/><Search searchId={mode} onChange={(id)=>{
       setMode(id);
     }}/></>
-  }else if(mode === "search_pw" || mode === "search_go_pw"){
+  }else if(mode === "search-pw" || mode === "search-go-pw"){
     article = <><Login/><Search searchId={mode} onChange={(id)=>{
       setMode(id);
     }}/></>
-  }else if(mode === "myPage"){
-    article = <MypageUi myInfomation={myInfomation} moyeoList={moyeoList} mode={mode}/>
-  }else if(mode === "myPage_history"){
-    article = <MypageUi myInfomation={myInfomation} moyeoList={moyeoList} mode={mode}/>
+  }else if(mode === "my-page"){
+    article = <Mypage myInfomation={myInfomation} moyeoList={moyeoList} mode={mode}/>
+  }else if(mode === "my-page-history"){
+    article = <Mypage myInfomation={myInfomation} moyeoList={moyeoList} mode={mode}/>
   }
 
   return (

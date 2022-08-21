@@ -1,7 +1,7 @@
 .article{
   height: 90%;
 }
-.myPage_article {
+.my-page-article {
   z-index: 1;
   position: absolute;
   margin-top: 50px;
@@ -11,7 +11,7 @@
   box-shadow: 8px 3px .4em var(--color-black-opacity-50);
 }
 
-.mypageUiP {
+.my-page-welcome {
   display : flex;
   justify-content : center;
   align-items: center;
@@ -23,15 +23,15 @@
   color: var(--color-black);
 }
 
-.mypage_line {
+.my-page-line {
   width: 352px;
   height: 1px;
   background-color: var(--color-black-opacity-50);
 }
-.mypage_list {
+.my-page-list {
  margin-top: 30px;
 }
-.mypage_list a {
+.my-page-list a {
   display : flex;
   justify-content : center;
   align-items: center;
@@ -43,19 +43,19 @@
   text-decoration: none;
   color: var(--color-black);
 }
-.mypage_modify{
+.my-page-modify{
   position: absolute;
   top: 100px;
   left: 500px;
 }
-.mypage_modify h2,
-.mypage_history h2{
+.my-page-modify h2,
+.my-page-history h2{
   font-size: 40px;
 }
-.mypage_id,
-.mypage_modify_name,
-.mypage_modify_pw,
-.mypage_delete{
+.my-page-id,
+.my-page-modify-name,
+.my-page-modify-pw,
+.my-page-delete{
   position: relative;
   border: 2px solid var(--color-main);
   border-radius: 20px;
@@ -68,16 +68,16 @@
   align-items: center;
   
 }
-.mypage_id p,
-.mypage_modify_name p,
-.mypage_modify_pw p,
-.mypage_delete p{
+.my-page-id p,
+.my-page-modify-name p,
+.my-page-modify-pw p,
+.my-page-delete p{
   font-size: 30px;
   display: inline;
   margin-right: 50px;
 }
-.modifyBtn,
-.deleteAccountBtn{
+.modify-btn,
+.delete-account-btn{
   background-color: #F2F2F2;
   border: 0;
   border-radius: 10px;
@@ -85,13 +85,13 @@
   height: 40px;
   font-size: 20px;
 }
-.checkDeleteAccount{
+.check-delete-account{
   position: absolute;
   top: 37px;
   width: 200px;
   height: 25px;
 }
-.mypage_history{
+.my-page-history{
   z-index: -2;
   position: absolute;
   background-color: var(--color-white);
@@ -100,44 +100,44 @@
   left: 353px;
   top: 50px;
 }
-.mypage_history h2{
+.my-page-history h2{
   margin-top: 0;
   padding: 50px;
   border-bottom: 1px solid var(--color-black);
 }
-.mypage_history h2,
-.historyList ul li{
+.my-page-history h2,
+.history-list ul li{
   padding-left: 50px;
 }
-.historyList{
+.history-list{
   width: 250px;
   height: 98%;
   box-shadow: 8px 3px .4em var(--color-black-opacity-50);
 }
-.historyList ul{
+.history-list ul{
   list-style: none;
   margin: 0;
   padding: 0px;
 }
-.historyList ul li{
+.history-list ul li{
   margin-top: 20px;
 }
-.historyList ul li a{
+.history-list ul li a{
   text-decoration: none;
   color: var(--color-black);
   font-size: 20px;
 }
-.historyBody{
+.history-body{
   position: absolute;
   left: 350px;
   top: 100px;
   width: 90%;
   height: 90%;
 }
-.meetAdress,
-.meetFirend,
-.meetStore,
-.meetDivision{
+.meet-adress,
+.meet-firend,
+.meet-store,
+.meet-division{
   margin-bottom: 30px;
   width: 60%;
   border-bottom: 1px solid var(--color-black);

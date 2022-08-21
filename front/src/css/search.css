@@ -1,5 +1,5 @@
-#search_id::after,
-#search_pw::after{
+#search-id::after,
+#search-pw::after{
   content: "l";
   margin: 10px;
 }
@@ -10,7 +10,7 @@
   height: 86%;
   background-color: var(--color-black-opacity-50);
 }
-.search_box{
+.search-box{
   position: relative;
   width: 500px;
   height: 700px;
@@ -19,12 +19,12 @@
   border: 1px solid var(--color-black);
   border-radius: 20px;
 }
-.search_box h2{
+.search-box h2{
   text-align: center;
   font-size: 30px;
   margin-bottom: 10px;
 }
-.exit_btn{
+.exit-btn{
   position: absolute;
   top: 35px;
   right: 20px;
@@ -32,47 +32,47 @@
   border: 0;
   background-color: var(--color-white);
 }
-.search_other_menu{
+.search-other-menu{
   text-align: center;
 }
-.search_other_menu a{
+.search-other-menu a{
   text-decoration: none;
   color: var(--color-black);
 }
-.search_other_id::after{
+.search-other-id::after{
   content: "l";
   margin: 10px;
 }
-.search_div,
-.search_div_answer{
+.search-div,
+.search-div-answer{
   position: relative;
   width: 300px;
   margin: 0px auto;
 }
-.search_div p{
+.search-div p{
   margin-top: 30px;
 }
-.search_contry{
+.search-contry{
   width: 200px;
   height: 30px;
   padding: 7px;
   font-size: 15px;
   margin-right: 10px;
 }
-.search_telecom{
+.search-telecom{
   width: 90px;
   height: 30px;
   padding: 7px;
   font-size: 15px;
 }
-.search_input{
+.search-input{
   margin-top: 10px;
   width: 282px;
   height: 12px;
   padding: 7px;
   font-size: 15px;
 }
-.search_input_withBtn{
+.search-input-with-btn{
   margin-top: 10px;
   width: 182px;
   height: 12px;
@@ -80,7 +80,7 @@
   font-size: 15px;
   margin-right: 10px;
 }
-.search_sms_btn{
+.search-sms-btn{
   width: 90px;
   height: 30px;
   padding: 4px;
@@ -89,8 +89,8 @@
   color: var(--color-white);
   border: 0;
 }
-.search_submit_id,
-.search_submit_pw{
+.search-submit-id,
+.search-submit-pw{
   position: absolute;
   left: 60px;
   width: 200px;
@@ -102,18 +102,18 @@
   font-size: 20px;
   padding: 5px;
 }
-.search_submit_id{
+.search-submit-id{
   top: 300px;
 }
-.search_submit_pw{
+.search-submit-pw{
   top: 400px;
 }
-.search_answer{
+.search-answer{
   margin: 10px 0 0 0;
   padding: 0;
   font-size: 20px;
 }
-.search_div_answer{
+.search-div-answer{
   padding-top: 100px;
   text-align: center;
 }

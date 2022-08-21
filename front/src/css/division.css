@@ -39,21 +39,21 @@
   margin-right: 100px;
   border-right: 1px solid var(--color-black-opacity-50);
 }
-.moyeo-section{
+.moyeo-select-section{
   margin: 40px 40px 0 40px;
   padding-right: 50px;
   border-right: 1px solid var(--color-black-opacity-50);
 }
-.moyeo-section ul{
+.moyeo-select-section ul{
   margin: 0;
   padding: 0;
   list-style: none;
 }
-.moyeo-section ul li a{
+.moyeo-select-section ul li a{
   text-decoration: none;
   color: var(--color-black);
 }
-.moyeo-list{
+.moyeo-select-list{
   font-size: 20px;
   margin-bottom: 20px;
   padding-bottom: 20px;
@@ -169,13 +169,13 @@
 .output-payment{
   float: right;
 }
-.sumMoney{
+.sum-money{
   position: absolute;
   bottom: 30px;
   left: 0px;
   width: 460px;
   margin: 0 0 0 40px;
 }
-.totalPayment{
+.total-payment{
   float: right;
 }

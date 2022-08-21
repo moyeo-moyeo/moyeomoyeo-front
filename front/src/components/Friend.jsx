@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import FriendImg from '../data/friend.png';
+import '../css/friend.css';
 
 function FriendBody(props) {
   let friendArticle = null;
@@ -9,23 +10,23 @@ function FriendBody(props) {
   let friendFind = [];
 
   for(let i = 0; i < props.friendsList.length; i++){
-    friendsName.push(<li key={i} className='myFriendsList'>{props.friendsList[i].name}<input type="checkbox"></input></li>);
+    friendsName.push(<li key={i} className='my-friends-list'>{props.friendsList[i].name}<input type="checkbox"></input></li>);
   }
 
   for(let i = 0; i < props.AddList.length; i++){
-    addFriendList.push(<li key={i} className='friendRequest'><span>{props.AddList[i].name}</span><div className='friendRequestAnswer'><input type="button" value="수락"></input><input type="button" value="거절"></input></div></li>);
+    addFriendList.push(<li key={i} className='friend-request'><span>{props.AddList[i].name}</span><div className='friend-request-answer'><input type="button" value="수락"></input><input type="button" value="거절"></input></div></li>);
   }
 
   for(let i = 0; i < props.findUser.length; i++){
-    friendFind.push(<li className='findedList' key={i}><span>{i}. {props.findUser[i].name}</span><div className='findUserAdd'><input type="button" value="추가"></input></div></li>)
+    friendFind.push(<li className='finded-list' key={i}><span>{i}. {props.findUser[i].name}</span><div className='find-user-add'><input type="button" value="추가"></input></div></li>)
   }
 
   if(mode === "friendList"){
-    friendArticle = <ul className='friendUl'>{friendsName}</ul>
+    friendArticle = <ul className='friend-ul'>{friendsName}</ul>
   }else if(mode === "friendAdd"){
-    friendArticle = <ul className='friendUl'>{addFriendList}</ul>
+    friendArticle = <ul className='friend-ul'>{addFriendList}</ul>
   }else if(mode === "friendFind"){
-    friendArticle = <div className='findUserContainer'><form className='findUserForm'><input type="text" className='findUserInput'></input><input type="submit" className='findUserSubmit' value="검색"></input></form><div>{friendFind}</div></div>
+    friendArticle = <div className='find-user-container'><form className='find-user-form'><input type="text" className='find-user-input'></input><input type="submit" className='find-user-submit' value="검색"></input></form><div>{friendFind}</div></div>
   }
   return <>{friendArticle}</>
 }
@@ -55,17 +56,17 @@ export default function Friend(props) {
   }
 
   return <>
-    <div className={"FriendBtn"+(props.friendHandler ? " active" : "")}>
-      <img className='FriendImge' src={FriendImg} alt='FriendBtn' onClick={event => {
+    <div className={"friend-btn"+(props.friendHandler ? " active" : "")}>
+      <img className='friend-image' src={FriendImg} alt='friend-btn' onClick={event => {
       props.onClose(!props.friendHandler);
       props.onMode("make");
       }}></img>
-      <div className="FriendDiv">
-        <div className='FriendExit'><a href='/' onClick={event=>{
+      <div className="friend-div">
+        <div className='friend-exit'><a href='/' onClick={event=>{
             event.preventDefault();
             props.onClose(!props.friendHandler);
           }}>X</a></div>
-        <div className='FriendNav'>
+        <div className='friend-nav'>
           <a href='/' onClick={event=>{
             event.preventDefault();
             props.onChange("friendList");
@@ -80,7 +81,7 @@ export default function Friend(props) {
           }}>친구찾기</a>
         </div>
           <FriendBody friendMode={props.friendMode} friendsList={friendsList} AddList={AddList} findUser={findUser}/>
-        <div className='FriendFooter'>
+        <div className='friend-footer'>
           <a href='/' onClick={event=>{
             event.preventDefault();
           }}>친구관리</a>

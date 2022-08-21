@@ -1,10 +1,11 @@
 import React,{useState,useEffect} from 'react';
+import '../css/division.css';
 
 function SelectList(props) {
   const list = [];
   for(let i = 0; i < props.moyeoList.length; i++){
     let data = props.moyeoList[i];
-    list.push(<li key={data.key} className='moyeo-list'>
+    list.push(<li key={data.key} className='moyeo-select-list'>
       <a id={'/moyeoList/'+data.key} href={'/entryList/'+data.key} onClick={event =>{
         event.preventDefault();
         props.onChangeMode(event.target.id);
@@ -12,7 +13,7 @@ function SelectList(props) {
     </li>)
   }
 
-  return <div className='moyeo-section'>
+  return <div className='moyeo-select-section'>
     <ul>
       {list}
     </ul>
@@ -71,7 +72,7 @@ function MainCalculator(props) {
         <div className='main-section-output'>
           <p className='output-title'>계산</p>
           <p className='pay-list'>결제 목록</p>
-          <div className='pay-list-box'><ul>{payList}</ul><div className='sumMoney'><span className='totalTitle'>총 결제금액</span><span className='totalPayment'>{sumMoney.toString()
+          <div className='pay-list-box'><ul>{payList}</ul><div className='sum-money'><span className='total-title'>총 결제금액</span><span className='total-payment'>{sumMoney.toString()
                 .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")+"원"}</span></div></div>
           <p className='output-answer'>계산 결과</p>
           {answer}

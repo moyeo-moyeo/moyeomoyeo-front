@@ -1,36 +1,36 @@
-.joinInput{
+.join-input{
   padding : 5px;
   border: 1px solid var(--color-black);
   width : 338px;
   height : 23px;
   font-size: 20px;
 }
-.joinInputWithBtn{
+.join-input-with-btn{
   padding: 5px;
   border: 1px solid var(--color-black);
   width: 238px;
   height: 23px;
   margin-right: 5px;
 }
-.joinDuplBtn{
+.join-dupl-btn{
   border: 0;
   background-color: var(--color-main);
   color: var(--color-white);
   width: 95px;
   height: 35px;
 }
-.Contry{
+.contry{
   padding: 5px;
   width: 250px;
   height: 35px;
   margin-right: 5px;
 }
-.Telecom{
+.telecom{
   padding: 5px;
   width: 95px;
   height: 35px;
 }
-.joinBtn{
+.join-btn{
   display: block;
   width: 250px;
   height: 50px;
@@ -41,7 +41,7 @@
   border-radius: 20px;
   margin: 25px 0 0 50px;
 }
-.joinPhoneDiv{
+.join-phone-div{
   margin: 5px 0 5px 0;
 }
 .join-article form p{
