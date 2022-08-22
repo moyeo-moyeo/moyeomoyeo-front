@@ -1,9 +1,30 @@
-.login-article{
-  width: 100%;
+/*error*/
+.login-error{
+  color:palevioletred;
+}
+.login-wrapper{
   display: flex;
   flex-direction: column;
+  width: 100%;
   align-items: center;
 }
+.login-header{
+  width: 50%;
+}
+.login-title{
+  text-align:center;
+  font-size: 60px;
+  margin: 0;
+  padding: 0;
+}
+
+.login-contents{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 .login-title{
   font-size: 60px;
   margin: 0;
@@ -23,10 +44,6 @@
   height : 23px;
   font-size: 20px;
 }
-.login-article form p{
-  margin-top: 35px;
-  font-size: 25px;
-}
 .login-submit{
   display: block;
   margin-top: 35px;
@@ -42,7 +59,10 @@
 .pop-up-btn{
   margin-top: 20px;
 }
-.pop-up-btn a{
+.pop-up-btn span{
   text-decoration: none;
   color: var(--color-black);
+}
+.hover-point{
+  cursor: pointer;
 }
