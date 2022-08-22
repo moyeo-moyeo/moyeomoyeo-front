@@ -1,6 +1,4 @@
 .login-article{
-  position: absolute;
-  top: 200px;
   width: 100%;
   display: flex;
   flex-direction: column;

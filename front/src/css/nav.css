@@ -1,6 +1,4 @@
 .nav{
-  position: fixed;
-  top: 80px;
   display: flex;
   align-items: center;
   background-color: var(--color-white-opacity-50);
