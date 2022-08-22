@@ -1,3 +1,34 @@
+/*error*/
+.join-error{
+  color:palevioletred;
+}
+
+/*전체 wrapper*/
+.join-wrapper{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+/*header*/
+.join-header{
+  width: 50%;
+}
+.join-title{
+  text-align:center;
+  font-size: 60px;
+  margin: 0;
+  padding: 0;
+}
+
+/*contents*/
+.join-contents{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 .join-input{
   padding : 5px;
   border: 1px solid var(--color-black);
@@ -12,14 +43,14 @@
   height: 23px;
   margin-right: 5px;
 }
-.join-dupl-btn{
+.join-duple-btn{
   border: 0;
   background-color: var(--color-main);
   color: var(--color-white);
   width: 95px;
   height: 35px;
 }
-.contry{
+.country{
   padding: 5px;
   width: 250px;
   height: 35px;
@@ -47,17 +78,4 @@
 .join-article form p{
   margin-top: 35px;
   font-size: 25px;
-}
-.join-title{
-  font-size: 60px;
-  margin: 0;
-  padding: 0;
-}
-.join-article{
-  position: absolute;
-  top: 200px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
