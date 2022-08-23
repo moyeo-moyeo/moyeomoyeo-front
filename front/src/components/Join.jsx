@@ -77,7 +77,7 @@ export default function Join() {
         }
     }
 
-    const postLoginRq = () => {
+    const postJoinRq = () => {
         if(true){
             alert("로그인 요청 중")
         }
@@ -212,7 +212,7 @@ export default function Join() {
                     <button className="join-duple-btn">인증받기</button>
                 </div>
                 <div>
-                    <button className="join-btn" onClick={postLoginRq}>
+                    <button className="join-btn" onClick={postJoinRq}>
                         가입하기
                     </button>
                 </div>
