@@ -39,7 +39,7 @@ import '../../css/myPage.css';
 //   </div>
 // }
 
-export default function Mypage() {
+export default function MyPage() {
   const [myData,setMyData] = useState({ //임시데이터
     id:'admin', name:'장준수', password: 'abcdefg'
   })
