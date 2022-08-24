@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import '../css/login.css';
 
 export default function Login(props) {
@@ -11,21 +12,13 @@ export default function Login(props) {
     <input className="login-pw-input" placeholder="암호 입력하세요"></input>
     <input className="login-submit" type="submit" value="로그인" onClick={event => {
       event.preventDefault();
+      console.log('로그인 시도');
     }}></input>
   </form>
   <div className="pop-up-btn">
-    <a id="search-id" href="/" onClick={event => {
-      event.preventDefault();
-      props.onChange(event.target.id);
-    }}>아이디 찾기</a>
-    <a id="search-pw" href="/" onClick={event => {
-      event.preventDefault();
-      props.onChange(event.target.id);
-    }}>비밀번호 찾기</a>
-    <a id="join" href="/" onClick={event => {
-      event.preventDefault();
-      props.onChange(event.target.id);
-    }}>회원가입</a>
+    <NavLink id="search-id" to="/login/search_id">아이디 찾기</NavLink>
+    <NavLink id="search-pw" to="/login/search_pw">비밀번호 찾기</NavLink>
+    <NavLink id="join" to="/join">회원가입</NavLink>
   </div>
   </article>
 }

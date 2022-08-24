@@ -8,7 +8,6 @@ function SelectList(props) {
     list.push(<li key={data.key} className='moyeo-select-list'>
       <a id={'/moyeoList/'+data.key} href={'/entryList/'+data.key} onClick={event =>{
         event.preventDefault();
-        props.onChangeMode(event.target.id);
       }}>{data.title} {data.peoples}</a>
     </li>)
   }
@@ -25,7 +24,6 @@ function MainCalculator(props) {
   const [paymentList,setPaymentList] = useState([]);
   const [payList,setPayList] = useState([]);
   const [sumMoney,setSumMoney] = useState(0);
-  console.log(sumMoney);
   for(let i = 0; i < props.moyeoList.length; i++){
     let data = props.moyeoList[i];
     if(props.calculator === '/moyeoList/'+data.key){
@@ -85,9 +83,14 @@ function MainCalculator(props) {
   return <div className='main-calculator'>{mainSection}</div>
 }
 
-export default function Division(props) {
+export default function Division() {
 
-  const [calculator,setCalculator] = useState('/moyeoList/'+props.moyeoList[0].key);
+  const [moyeoList,setMoyeoList] = useState([ //임시데이터
+    {key : 1, title : "회운님과 약속", peoples : "(2)", value : ["장준수","정회운"]},
+    {key : 2, title : "지수님과 약속", peoples : "(2)", value : ["장준수","성지수"]},
+    {key : 3, title : "프로젝트 약속", peoples : "(5)", value : ["장준수","정회운","성지수","최강현","황수경"]}
+  ]);
+  const [calculator,setCalculator] = useState('/moyeoList/'+moyeoList[0].key);
 
   return <article className="article">
     <div className="division-title">
@@ -95,10 +98,8 @@ export default function Division(props) {
       <p>오늘 친구와 사용한 금액 계산하기</p>
     </div>
     <section className='division-section'>
-        <SelectList moyeoList={props.moyeoList} onChangeMode={(id) => {
-          setCalculator(id);
-        }}/>
-        <MainCalculator calculator={calculator} moyeoList={props.moyeoList}/>
+        <SelectList moyeoList={moyeoList}/>
+        <MainCalculator calculator={calculator} moyeoList={moyeoList}/>
     </section>
   </article>
 }

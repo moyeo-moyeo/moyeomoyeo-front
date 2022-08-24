@@ -2,19 +2,23 @@ import React, {useState,useEffect} from "react";
 import KakaoMapCategory from "./KakaoMapCategory";
 import '../css/map.css';
 
-function SelectList(props) {
+function SelectList() {
 
-  console.log("test");
+  const [moyeoList,setMoyeoList] = useState([ //임시데이터
+    {key : 1, title : "회운님과 약속", peoples : "(2)", value : ["장준수","정회운"]},
+    {key : 2, title : "지수님과 약속", peoples : "(2)", value : ["장준수","성지수"]},
+    {key : 3, title : "프로젝트 약속", peoples : "(5)", value : ["장준수","정회운","성지수","최강현","황수경"]}
+  ]);
 
-  const [listMode, setListMode] = useState(false);
+  const [listMode, setListMode] = useState(1);
   const list = [];
-  for(let i = 0; i < props.moyeoList.length; i++){
-    let data = props.moyeoList[i];
+
+  for(let i = 0; i < moyeoList.length; i++){
+    let data = moyeoList[i];
     list.push(<li key={data.key} className='map-moyeo-list'>
       <a id={'/moyeoList/'+data.key} className={'moyeo '+ (listMode === '/moyeoList/'+data.key && 'active')} href={'/entryList/'+data.key} onClick={event =>{
         event.preventDefault();
         setListMode(event.target.id);
-        props.onActive(event.target.id);
       }}>{data.title} {data.peoples}</a>
     </li>)
   }
@@ -24,7 +28,7 @@ function SelectList(props) {
     </ul>
 }
 
-export default function Map(props) {
+export default function Map() {
 
   useEffect(() => {
     KakaoMapCategory();
@@ -60,8 +64,6 @@ export default function Map(props) {
       </ul>
     </div>
     <div id="map"></div>
-    <div className="moyeo-list"><SelectList moyeoList={props.moyeoList} onActive={(activeId)=>{
-      props.onChange(activeId)
-    }}/></div>
+    <div className="moyeo-list"><SelectList/></div>
   </article>
 }
