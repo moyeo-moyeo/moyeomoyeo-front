@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from "react";
-import KakaoMapCategory from "./KakaoMapCategory";
+import KakaoMapCategory from "../components/KakaoMapCategory";
 import '../css/map.css';
 
 function SelectList() {
