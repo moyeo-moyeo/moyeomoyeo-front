@@ -1,0 +1,74 @@
+.article{
+    position: absolute;
+    margin-top: 30px;
+    height: 90%;
+}
+  .my-page-article {
+    z-index: 1;
+    position: absolute;
+    margin-top: 20px;
+    width: 352px;
+    height: 100%;
+    border-right: 1px solid var(--color-black-opacity-50);
+    box-shadow: 8px 3px .4em var(--color-black-opacity-50);
+}
+.my-page-history{
+    z-index: -2;
+    position: absolute;
+    background-color: var(--color-white);
+    height: 100%;
+    width: 70%;
+    left: 353px;
+    top: 50px;
+  }
+  .my-page-history h2{
+    margin-top: 0;
+    padding: 50px;
+    border-bottom: 1px solid var(--color-black);
+  }
+  .my-page-history h2,
+  .history-list ul li{
+    padding-left: 50px;
+  }
+  .history-list{
+    width: 250px;
+    height: 100%;
+    position: absolute;
+    left: 350px;
+    top: 20px;
+    box-shadow: 8px 3px .4em var(--color-black-opacity-50);
+  }
+  .history-list h2{
+    text-align: center;
+    font-size: 30px;
+    margin: 50px;
+  }
+  .history-list ul{
+    list-style: none;
+    margin: 0;
+    padding: 0px;
+  }
+  .history-list ul li{
+    margin-top: 30px;
+  }
+  .history-list ul li a{
+    text-decoration: none;
+    color: var(--color-black);
+    font-size: 23px;
+  }
+  .history-body{
+    position: absolute;
+    left: 750px;
+    top: 100px;
+    width: 85%;
+    height: 90%;
+  }
+  .meet-adress,
+  .meet-firend,
+  .meet-store,
+  .meet-division{
+    margin-bottom: 30px;
+    width: 60%;
+    border-bottom: 1px solid var(--color-black);
+    font-size: 25px;
+  }

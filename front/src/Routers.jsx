@@ -4,29 +4,12 @@ import Nav from './components/Nav'
 import Footer from './components/Footer'
 import Map from './components/Map'
 import Mypage from './components/Mypage/Mypage'
-import NewMeeting from './components/NewMeeting'
 import Division from './components/Division'
 import History from './components/Mypage/History'
 import Login from './components/Login'
 import SearchId from './components/SearchId'
 import SearchPw from './components/SearchPw'
 import Join from './components/Join'
-
-function SearchIdRoute(){
-    return (<>
-        <Login/><SearchId/>
-    </>);
-}
-function SearchPwRoute(){
-    return (<>
-        <Login/><SearchPw/>
-    </>);
-}
-function NewMeetingRoute(){
-    return (<>
-        <Map/><NewMeeting/>
-    </>);
-}
 
 export default function Routers(props) {
 
@@ -38,12 +21,11 @@ export default function Routers(props) {
             <Route exact path='/' component={Map}/>
             <Route exact path='/join' component={Join}/>
             <Route exact path='/mypage' component={Mypage}/>
-            <Route exact path='/newmeeting' component={NewMeetingRoute}/>
             <Route exact path='/division' component={Division}/>
             <Route exact path='/mypage/history' component={History}/>
             <Route exact path='/login' component={Login}/>
-            <Route exact path='/login/search_id' component={SearchIdRoute}/>
-            <Route exact path='/login/search_pw' component={SearchPwRoute}/>
+            <Route exact path='/login/search_id' component={SearchId}/>
+            <Route exact path='/login/search_pw' component={SearchPw}/>
         </Switch>
     </>
     );

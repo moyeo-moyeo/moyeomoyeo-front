@@ -6,7 +6,7 @@ import './css/theme.css';
 
 function App() {
 
-  const [loginState,setLoginState] = useState("logined");
+  const [loginState,setLoginState] = useState("logined"); // Redux or LocalStorege
 
   return (
     <Routers loginState={loginState} setLoginState={setLoginState}/>

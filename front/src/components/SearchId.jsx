@@ -46,7 +46,7 @@ export default function Search(props) {
               알뜰폰
             </option>
           </select>
-          <input className="search-input-withBtn" placeholder="휴대폰번호 입력"></input>
+          <input className="search-input-with-btn" placeholder="휴대폰번호 입력"></input>
           <button className="search-sms-btn">인증받기</button>
           <input className="search-input"></input>
           <input id="search-id-submit" className="search-submit-id" type="submit" value="아이디 찾기" onClick={event =>{

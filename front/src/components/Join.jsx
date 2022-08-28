@@ -6,7 +6,7 @@ export default function Join() {
             <p className="join-title">모여모여</p>
             <form>
                 <p>아이디 : </p>
-                <div>    
+                <div>
                     <input className="join-input-with-btn"  placeholder="아이디를 입력하세요" type="text" name="username" />
                     <button className="join-dupl-btn">중복확인</button>
                 </div>
@@ -18,7 +18,7 @@ export default function Join() {
                 <input className="join-input"  placeholder="비밀번호를 입력하세요" type="password" name="check-password" />
                 
                 <p>닉네임 : </p>
-                <div>        
+                <div>
                     <input className="join-input-with-btn"  placeholder="닉네임을 입력하세요" type="text" name="nickname" />
                     <button className="join-dupl-btn">중복확인</button>
                 </div>
