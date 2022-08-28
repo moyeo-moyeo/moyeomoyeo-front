@@ -1,3 +1,10 @@
+import img_store from '../data/map-img/001-store.png';
+import img_train from '../data/map-img/002-train.png';
+import img_tour from '../data/map-img/003-tour.png';
+import img_food from '../data/map-img/004-food.png';
+import img_coffee from '../data/map-img/005-coffee.png';
+import img_oil from '../data/map-img/006-oil.png';
+
 var placeInfomation;
 
 const { kakao } = window;
@@ -127,12 +134,25 @@ export default function KakaoMapCategory() {
 
   // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
   function addMarker(position, order) {
-    var imageSrc =
-        "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png", // 마커 이미지 url, 스프라이트 이미지를 씁니다
+    let imgSrcLink;
+    if(order === '0'){
+      imgSrcLink = img_store;
+    }else if(order === '1'){
+      imgSrcLink = img_train;
+    }else if(order === '2'){
+      imgSrcLink = img_tour;
+    }else if(order === '3'){
+      imgSrcLink = img_food;
+    }else if(order === '4'){
+      imgSrcLink = img_coffee;
+    }else if(order === '5'){
+      imgSrcLink = img_oil;
+    }
+    var imageSrc = imgSrcLink, // 마커 이미지 url, 스프라이트 이미지를 씁니다
       imageSize = new kakao.maps.Size(27, 28), // 마커 이미지의 크기
       imgOptions = {
-        spriteSize: new kakao.maps.Size(72, 208), // 스프라이트 이미지의 크기
-        spriteOrigin: new kakao.maps.Point(46, order * 36), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
+        spriteSize: new kakao.maps.Size(25, 25), // 스프라이트 이미지의 크기
+        spriteOrigin: new kakao.maps.Point(0,0), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
         offset: new kakao.maps.Point(11, 28), // 마커 좌표에 일치시킬 이미지 내에서의 좌표
       },
       markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions),
@@ -257,46 +277,6 @@ export default function KakaoMapCategory() {
     placeOverlay.setPosition(new kakao.maps.LatLng(place.y, place.x));
     placeOverlay.setMap(map);
 
-    // var content =
-    //   '<div class="placeinfo">' +
-    //   "<a id= " +
-    //   place.id +
-    //   '" class="title" title="' +
-    //   place.place_name +
-    //   '">' +
-    //   place.place_name +
-    //   "</a>";
-    // if (place.road_address_name) {
-    //   content +=
-    //     '    <span title="' +
-    //     place.road_address_name +
-    //     '">' +
-    //     place.road_address_name +
-    //     "</span>" +
-    //     '  <span class="jibun" title="' +
-    //     place.address_name +
-    //     '">(지번 : ' +
-    //     place.address_name +
-    //     ")</span>";
-    // } else {
-    //   content +=
-    //     '    <span title="' +
-    //     place.address_name +
-    //     '">' +
-    //     place.address_name +
-    //     "</span>";
-    // }
-
-    // content +=
-    //   '    <span class="tel">' +
-    //   place.phone +
-    //   "</span>" +
-    //   "</div>" +
-    //   '<div class="after"></div>';
-
-    // contentNode.innerHTML = content;
-    // placeOverlay.setPosition(new kakao.maps.LatLng(place.y, place.x));
-    // placeOverlay.setMap(map);
   }
 
   // 각 카테고리에 클릭 이벤트를 등록합니다

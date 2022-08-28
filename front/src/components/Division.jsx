@@ -8,6 +8,9 @@ function SelectList(props) {
     list.push(<li key={data.key} className='moyeo-select-list'>
       <a id={'/moyeoList/'+data.key} href={'/entryList/'+data.key} onClick={event =>{
         event.preventDefault();
+        props.setPaymentList([]);
+        props.setPayList([]);
+        props.setSumMoney(0);
       }}>{data.title} {data.peoples}</a>
     </li>)
   }
@@ -21,9 +24,6 @@ function SelectList(props) {
 
 function MainCalculator(props) {
   let mainSection,value,answer,persons,place,payment = null;
-  const [paymentList,setPaymentList] = useState([]);
-  const [payList,setPayList] = useState([]);
-  const [sumMoney,setSumMoney] = useState(0);
   for(let i = 0; i < props.moyeoList.length; i++){
     let data = props.moyeoList[i];
     if(props.calculator === '/moyeoList/'+data.key){
@@ -60,9 +60,9 @@ function MainCalculator(props) {
               persons = document.getElementById('pay-persons').value;
               place = document.getElementById('input-place').value;
               payment = document.getElementById('input-payment').value;
-              setPaymentList([...paymentList,{ persons : {persons}, place : {place}, payment : {payment}}]);
-              setSumMoney(Number(sumMoney)+Number(payment));
-              setPayList([...payList,<li key={Math.random()} className='output-list'><span className='output-persons'>{persons}</span><span className='output-place'>{place}</span><span className='output-payment'>{payment.toString()
+              props.setPaymentList([...props.paymentList,{ persons : {persons}, place : {place}, payment : {payment}}]);
+              props.setSumMoney(Number(props.sumMoney)+Number(payment));
+              props.setPayList([...props.payList,<li key={Math.random()} className='output-list'><span className='output-persons'>{persons}</span><span className='output-place'>{place}</span><span className='output-payment'>{payment.toString()
                 .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")+"원"}</span></li>]);
             }}></input>
           </form>
@@ -70,7 +70,7 @@ function MainCalculator(props) {
         <div className='main-section-output'>
           <p className='output-title'>계산</p>
           <p className='pay-list'>결제 목록</p>
-          <div className='pay-list-box'><ul>{payList}</ul><div className='sum-money'><span className='total-title'>총 결제금액</span><span className='total-payment'>{sumMoney.toString()
+          <div className='pay-list-box'><ul>{props.payList}</ul><div className='sum-money'><span className='total-title'>총 결제금액</span><span className='total-payment'>{props.sumMoney.toString()
                 .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")+"원"}</span></div></div>
           <p className='output-answer'>계산 결과</p>
           {answer}
@@ -91,6 +91,9 @@ export default function Division() {
     {key : 3, title : "프로젝트 약속", peoples : "(5)", value : ["장준수","정회운","성지수","최강현","황수경"]}
   ]);
   const [calculator,setCalculator] = useState('/moyeoList/'+moyeoList[0].key);
+  const [paymentList,setPaymentList] = useState([]);
+  const [payList,setPayList] = useState([]);
+  const [sumMoney,setSumMoney] = useState(0);
 
   return <article className="article">
     <div className="division-title">
@@ -98,8 +101,22 @@ export default function Division() {
       <p>오늘 친구와 사용한 금액 계산하기</p>
     </div>
     <section className='division-section'>
-        <SelectList moyeoList={moyeoList}/>
-        <MainCalculator calculator={calculator} moyeoList={moyeoList}/>
+        <SelectList 
+          moyeoList={moyeoList}
+          setPaymentList={setPaymentList}
+          setPayList={setPayList}
+          setSumMoney={setSumMoney}
+        />
+        <MainCalculator
+          calculator={calculator}
+          moyeoList={moyeoList}
+          paymentList={paymentList}
+          payList={payList}
+          sumMoney={sumMoney}
+          setPaymentList={setPaymentList}
+          setPayList={setPayList}
+          setSumMoney={setSumMoney}
+        />
     </section>
   </article>
 }
