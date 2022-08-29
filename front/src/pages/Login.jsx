@@ -1,3 +1,4 @@
+
 import '../css/login.css';
 import {useState} from "react";
 
@@ -90,7 +91,7 @@ export default function Login() {
                     <span id="search-pw" className="hover-point" onClick={getFindPwRq}>
                         비밀번호 찾기
                     </span>
-                    <span id="join" className="hover-point" onClick={()=>{window.location.href="/"}}>
+                    <span id="join" className="hover-point" onClick={()=>{window.location.href="/join"}}>
                         회원가입
                     </span>
                 </div>
