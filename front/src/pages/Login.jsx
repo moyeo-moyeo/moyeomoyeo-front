@@ -1,24 +1,101 @@
-import { NavLink } from 'react-router-dom';
+
 import '../css/login.css';
+import {useState} from "react";
 
-export default function Login(props) {
+export default function Login() {
 
-  return <article className="login-article">
-  <p className='login-title'>로그인</p>
-  <form>
-    <p>아이디</p>
-    <input className="login-id-input" placeholder="아이디를 입력하세요"></input>
-    <p>비밀번호</p>
-    <input className="login-pw-input" placeholder="암호 입력하세요"></input>
-    <input className="login-submit" type="submit" value="로그인" onClick={event => {
-      event.preventDefault();
-      console.log('로그인 시도');
-    }}></input>
-  </form>
-  <div className="pop-up-btn">
-    <NavLink id="search-id" to="/login/search_id">아이디 찾기</NavLink>
-    <NavLink id="search-pw" to="/login/search_pw">비밀번호 찾기</NavLink>
-    <NavLink id="join" to="/join">회원가입</NavLink>
-  </div>
-  </article>
+    /**
+     * 회원가입 요청 시 필요 데이터
+     */
+    const [requestBody,setRequestBody] = useState(
+        {
+            loginId:'',
+            password:'',
+        }
+    )
+    /**
+     * 회원가입 데이터 바인딩
+     * @param e
+     */
+    const handleValue = e => {
+        const { name, value } = e.target;
+        setRequestBody(previousState => {
+            return { ...previousState, [name]: value };
+        });
+    };
+    /**
+     * 비밀번호 찾기 요청
+     */
+    const getFindPwRq = () => {
+        if(true){
+            alert("아이디 중복검사 요청 중")
+        }
+
+    }
+    /**
+     * 아이디 찾기 요청
+     */
+    const getFindIdRq = () => {
+        if(true){
+            alert("닉네임 중복검사 요청 중")
+        }
+    }
+
+    const postLoginRq = () => {
+        if(true){
+            alert("로그인 요청 중")
+        }
+    }
+
+
+    return (
+        <div className="login-wrapper">
+            <header className="login-header">
+                <p className='login-title'>로그인</p>
+            </header>
+            <main className="login-contents">
+                <div>
+                    <p>아이디</p>
+                    <input
+                        className="login-id-input"
+                        value={requestBody.loginId}
+                        placeholder="아이디를 입력하세요"
+                        type="text"
+                        name="loginId"
+                        onChange={handleValue}
+                    />
+                </div>
+                <div>
+                    <p>비밀번호</p>
+                    <input
+                        className="login-pw-input"
+                        value={requestBody.password}
+                        placeholder="비밀번호를 입력하세요"
+                        type="password"
+                        name="password"
+                        onChange={handleValue}
+                    />
+                </div>
+                <div>
+                    <button
+                        className="login-submit"
+                        onClick={postLoginRq}
+                    >
+                        로그인
+                    </button>
+                </div>
+                <div className="pop-up-btn">
+                    <span id="search-id" className="hover-point" onClick={getFindIdRq}>
+                        아이디 찾기
+                    </span>
+                    <span id="search-pw" className="hover-point" onClick={getFindPwRq}>
+                        비밀번호 찾기
+                    </span>
+                    <span id="join" className="hover-point" onClick={()=>{window.location.href="/join"}}>
+                        회원가입
+                    </span>
+                </div>
+            </main>
+        </div>
+    )
 }
