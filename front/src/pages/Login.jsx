@@ -1,3 +1,4 @@
+import {ApiRq} from "../utils/apiConfig";
 
 import '../css/login.css';
 import {useState} from "react";
@@ -44,6 +45,12 @@ export default function Login() {
     const postLoginRq = () => {
         if(true){
             alert("로그인 요청 중")
+        }else{
+            // ApiRq('post','' , '')//요청
+            //     .then(() => {//요청 처리
+            //     })
+            //     .catch(res => {//예외처리
+            //     })
         }
     }
 
