@@ -8,7 +8,7 @@ import img_oil from '../data/map-img/006-oil.png';
 var placeInfomation;
 
 const { kakao } = window;
-export default function KakaoMapCategory() {
+export default function KakaoMapCategory(address) {
   // 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
   var placeOverlay = new kakao.maps.CustomOverlay({ zIndex: 1 }),
     contentNode = document.createElement("div"), // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다
@@ -26,9 +26,9 @@ export default function KakaoMapCategory() {
 
   // 주소-좌표 변환 객체를 생성합니다
   var geocoder = new kakao.maps.services.Geocoder();
-  let UserAddress = '서울시 강서구 강서로 17가길 46';
+  let SearchValue = address;
   // 내 주소로 좌표를 검색합니다
-  geocoder.addressSearch(UserAddress, function(result, status) {
+  geocoder.addressSearch(SearchValue, function(result, status) {
   // 정상적으로 검색이 완료됐으면 
     if (status === kakao.maps.services.Status.OK) {
 
@@ -41,14 +41,21 @@ export default function KakaoMapCategory() {
       });
 
       // 인포윈도우로 장소에 대한 설명을 표시합니다
-      let infowindow = new kakao.maps.InfoWindow({
+      var infowindow = new kakao.maps.InfoWindow({
           content: '<div style="width:150px;text-align:center;padding:6px 0;">나의 위치</div>'
       });
       infowindow.open(map, marker);
 
       // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
       map.setCenter(coords);
-  }});
+    }
+    let errer = document.getElementById('errer-message');
+    if(infowindow == undefined){
+      errer.classList.add('active');
+    }else if(infowindow != undefined){
+      errer.classList.remove('active');
+    }
+  });
   // 장소 검색 객체를 생성합니다
   var ps = new kakao.maps.services.Places(map);
 

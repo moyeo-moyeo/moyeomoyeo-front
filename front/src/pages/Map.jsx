@@ -4,11 +4,14 @@ import '../css/map.css';
 
 
 export default function Map() {
+  const [address,setAddress] = useState('');
+  const [searchValue, setSearchValue] = useState('서울시 강서구 강서로 17가길 46');
   
   useEffect(() => {
-    KakaoMapCategory();
-  }, []);
-  
+    KakaoMapCategory(searchValue);
+  }, [searchValue]);
+
+
   const [moyeoList,setMoyeoList] = useState([ //임시데이터
     {key : 1, title : "회운님과 약속", peoples : "(2)", value : ["장준수","정회운"]},
     {key : 2, title : "지수님과 약속", peoples : "(2)", value : ["장준수","성지수"]},
@@ -26,6 +29,16 @@ export default function Map() {
         setListMode(event.target.id);
       }}>{data.title} {data.peoples}</a>
     </li>)
+  }
+
+  const handleChange = event => {
+    setAddress(event.target.value);
+  }
+
+  const handleSearch = event => {
+    event.preventDefault();
+    setSearchValue(address);
+    console.log(searchValue);
   }
 
   return <article className="article">
@@ -57,6 +70,11 @@ export default function Map() {
           </li>      
       </ul>
     </div>
+    <div id="search-address">
+      <input type='text' id="search-bar" name="search" onChange={handleChange} value={address} placeholder="주소를 입력하세요."/>
+      <button onClick={handleSearch}>검색</button>
+    </div>
+    <div id="errer-message"><span className="warning">!</span> 검색 결과가 없습니다. <span className="warning">!</span></div>
     <div id="map"></div>
     <div className="moyeo-list"><ul className='map-list-ul'>{list}</ul></div>
   </article>
