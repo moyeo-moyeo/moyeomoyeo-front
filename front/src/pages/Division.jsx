@@ -25,7 +25,8 @@ function SelectList(props) {
 
 function MainCalculator(props) {
   let mainSection,value,answer,persons,place,payment = null;
-  console.log(props.divisionSelect,props.moyeoList[0].key)
+  
+  console.log(props.divisionSelect,props.moyeoList[0].key);
   for(let i = 0; i < props.moyeoList.length; i++){
     let data = props.moyeoList[i];
     if(props.divisionSelect === data.key){
@@ -112,6 +113,7 @@ export default function Division() {
           setDivisionSelect={setDivisionSelect}
         />
         <MainCalculator
+          calculator={calculator}
           moyeoList={moyeoList}
           paymentList={paymentList}
           payList={payList}
