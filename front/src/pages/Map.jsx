@@ -9,11 +9,7 @@ export default function Map() {
   useEffect(() => {
     KakaoMapCategory(searchValue);
   }, [searchValue]);
-  
-  useEffect(() => {
-    KakaoMapCategory();
-  }, []);
-  
+
   const [moyeoList,setMoyeoList] = useState([ //임시데이터
     {key : 1, title : "회운님과 약속", peoples : "(2)", value : ["장준수","정회운"]},
     {key : 2, title : "지수님과 약속", peoples : "(2)", value : ["장준수","성지수"]},
@@ -42,6 +38,7 @@ export default function Map() {
     setSearchValue(address);
     console.log(searchValue);
   }
+
   return <article className="article">
     <div className="map-wrap">
       <ul id="category">
