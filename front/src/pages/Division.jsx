@@ -11,6 +11,7 @@ function SelectList(props) {
         props.setPaymentList([]);
         props.setPayList([]);
         props.setSumMoney(0);
+        props.setDivisionSelect(event.target.id[event.target.id.length-1]);
       }}>{data.title} {data.peoples}</a>
     </li>)
   }
@@ -24,9 +25,10 @@ function SelectList(props) {
 
 function MainCalculator(props) {
   let mainSection,value,answer,persons,place,payment = null;
+  console.log(props.divisionSelect,props.moyeoList[0].key)
   for(let i = 0; i < props.moyeoList.length; i++){
     let data = props.moyeoList[i];
-    if(props.calculator === '/moyeoList/'+data.key){
+    if(props.divisionSelect === data.key){
       for(let j = 0; j < data.value.length; j++){
         value = <>{value}
           <option>
@@ -86,14 +88,15 @@ function MainCalculator(props) {
 export default function Division() {
 
   const [moyeoList,setMoyeoList] = useState([ //임시데이터
-    {key : 1, title : "회운님과 약속", peoples : "(2)", value : ["장준수","정회운"]},
-    {key : 2, title : "지수님과 약속", peoples : "(2)", value : ["장준수","성지수"]},
-    {key : 3, title : "프로젝트 약속", peoples : "(5)", value : ["장준수","정회운","성지수","최강현","황수경"]}
+    {key : '1', title : "회운님과 약속", peoples : "(2)", value : ["장준수","정회운"]},
+    {key : '2', title : "지수님과 약속", peoples : "(2)", value : ["장준수","성지수"]},
+    {key : '3', title : "프로젝트 약속", peoples : "(5)", value : ["장준수","정회운","성지수","최강현","황수경"]}
   ]);
   const [calculator,setCalculator] = useState('/moyeoList/'+moyeoList[0].key);
   const [paymentList,setPaymentList] = useState([]);
   const [payList,setPayList] = useState([]);
   const [sumMoney,setSumMoney] = useState(0);
+  const [divisionSelect,setDivisionSelect] = useState('1');
 
   return <article className="article">
     <div className="division-title">
@@ -106,13 +109,14 @@ export default function Division() {
           setPaymentList={setPaymentList}
           setPayList={setPayList}
           setSumMoney={setSumMoney}
+          setDivisionSelect={setDivisionSelect}
         />
         <MainCalculator
-          calculator={calculator}
           moyeoList={moyeoList}
           paymentList={paymentList}
           payList={payList}
           sumMoney={sumMoney}
+          divisionSelect={divisionSelect}
           setPaymentList={setPaymentList}
           setPayList={setPayList}
           setSumMoney={setSumMoney}
