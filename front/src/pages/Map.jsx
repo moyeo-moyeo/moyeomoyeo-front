@@ -2,7 +2,6 @@ import React, {useState,useEffect} from "react";
 import KakaoMapCategory from "../components/KakaoMapCategory";
 import '../css/map.css';
 
-
 export default function Map() {
   const [address,setAddress] = useState('');
   const [searchValue, setSearchValue] = useState('서울시 강서구 강서로 17가길 46');
@@ -10,8 +9,11 @@ export default function Map() {
   useEffect(() => {
     KakaoMapCategory(searchValue);
   }, [searchValue]);
-
-
+  
+  useEffect(() => {
+    KakaoMapCategory();
+  }, []);
+  
   const [moyeoList,setMoyeoList] = useState([ //임시데이터
     {key : 1, title : "회운님과 약속", peoples : "(2)", value : ["장준수","정회운"]},
     {key : 2, title : "지수님과 약속", peoples : "(2)", value : ["장준수","성지수"]},
@@ -40,7 +42,6 @@ export default function Map() {
     setSearchValue(address);
     console.log(searchValue);
   }
-
   return <article className="article">
     <div className="map-wrap">
       <ul id="category">
