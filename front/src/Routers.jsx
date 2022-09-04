@@ -31,6 +31,7 @@ export default function Routers(props) {
             <Route exact path='/' component={Map}/>
             <Route exact path='/join' component={Join}/>
             <Route exact path='/mypage' component={Mypage}/>
+            <Route exact path='/division' component={Division}/>
             <Route exact path='/mypage/history' component={History}/>
             <Route exact path='/division' component={Division}/>
             <Route exact path='/login' component={Login}/>
