@@ -1,7 +1,14 @@
+import img_store from '../data/map-img/001-store.png';
+import img_train from '../data/map-img/002-train.png';
+import img_tour from '../data/map-img/003-tour.png';
+import img_food from '../data/map-img/004-food.png';
+import img_coffee from '../data/map-img/005-coffee.png';
+import img_oil from '../data/map-img/006-oil.png';
+
 var placeInfomation;
 
 const { kakao } = window;
-export default function KakaoMapCategory() {
+export default function KakaoMapCategory(address) {
   // 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
   var placeOverlay = new kakao.maps.CustomOverlay({ zIndex: 1 }),
     contentNode = document.createElement("div"), // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다
@@ -19,9 +26,9 @@ export default function KakaoMapCategory() {
 
   // 주소-좌표 변환 객체를 생성합니다
   var geocoder = new kakao.maps.services.Geocoder();
-  let UserAddress = '서울시 강서구 강서로 17가길 46';
+  let SearchValue = address;
   // 내 주소로 좌표를 검색합니다
-  geocoder.addressSearch(UserAddress, function(result, status) {
+  geocoder.addressSearch(SearchValue, function(result, status) {
   // 정상적으로 검색이 완료됐으면 
     if (status === kakao.maps.services.Status.OK) {
 
@@ -34,14 +41,21 @@ export default function KakaoMapCategory() {
       });
 
       // 인포윈도우로 장소에 대한 설명을 표시합니다
-      let infowindow = new kakao.maps.InfoWindow({
+      var infowindow = new kakao.maps.InfoWindow({
           content: '<div style="width:150px;text-align:center;padding:6px 0;">나의 위치</div>'
       });
       infowindow.open(map, marker);
 
       // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
       map.setCenter(coords);
-  }});
+    }
+    let errer = document.getElementById('errer-message');
+    if(infowindow == undefined){
+      errer.classList.add('active');
+    }else if(infowindow != undefined){
+      errer.classList.remove('active');
+    }
+  });
   // 장소 검색 객체를 생성합니다
   var ps = new kakao.maps.services.Places(map);
 
@@ -127,12 +141,25 @@ export default function KakaoMapCategory() {
 
   // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
   function addMarker(position, order) {
-    var imageSrc =
-        "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png", // 마커 이미지 url, 스프라이트 이미지를 씁니다
+    let imgSrcLink;
+    if(order === '0'){
+      imgSrcLink = img_store;
+    }else if(order === '1'){
+      imgSrcLink = img_train;
+    }else if(order === '2'){
+      imgSrcLink = img_tour;
+    }else if(order === '3'){
+      imgSrcLink = img_food;
+    }else if(order === '4'){
+      imgSrcLink = img_coffee;
+    }else if(order === '5'){
+      imgSrcLink = img_oil;
+    }
+    var imageSrc = imgSrcLink, // 마커 이미지 url, 스프라이트 이미지를 씁니다
       imageSize = new kakao.maps.Size(27, 28), // 마커 이미지의 크기
       imgOptions = {
-        spriteSize: new kakao.maps.Size(72, 208), // 스프라이트 이미지의 크기
-        spriteOrigin: new kakao.maps.Point(46, order * 36), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
+        spriteSize: new kakao.maps.Size(25, 25), // 스프라이트 이미지의 크기
+        spriteOrigin: new kakao.maps.Point(0,0), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
         offset: new kakao.maps.Point(11, 28), // 마커 좌표에 일치시킬 이미지 내에서의 좌표
       },
       markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions),
@@ -257,46 +284,6 @@ export default function KakaoMapCategory() {
     placeOverlay.setPosition(new kakao.maps.LatLng(place.y, place.x));
     placeOverlay.setMap(map);
 
-    // var content =
-    //   '<div class="placeinfo">' +
-    //   "<a id= " +
-    //   place.id +
-    //   '" class="title" title="' +
-    //   place.place_name +
-    //   '">' +
-    //   place.place_name +
-    //   "</a>";
-    // if (place.road_address_name) {
-    //   content +=
-    //     '    <span title="' +
-    //     place.road_address_name +
-    //     '">' +
-    //     place.road_address_name +
-    //     "</span>" +
-    //     '  <span class="jibun" title="' +
-    //     place.address_name +
-    //     '">(지번 : ' +
-    //     place.address_name +
-    //     ")</span>";
-    // } else {
-    //   content +=
-    //     '    <span title="' +
-    //     place.address_name +
-    //     '">' +
-    //     place.address_name +
-    //     "</span>";
-    // }
-
-    // content +=
-    //   '    <span class="tel">' +
-    //   place.phone +
-    //   "</span>" +
-    //   "</div>" +
-    //   '<div class="after"></div>';
-
-    // contentNode.innerHTML = content;
-    // placeOverlay.setPosition(new kakao.maps.LatLng(place.y, place.x));
-    // placeOverlay.setMap(map);
   }
 
   // 각 카테고리에 클릭 이벤트를 등록합니다

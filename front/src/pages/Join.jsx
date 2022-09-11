@@ -18,6 +18,7 @@ export default function Join() {
             emailCertification:'' //이메일 인증번호
         }
     )
+
     /**
      * 비밀번호, 비밀번호 확인 체크 값 -> 같으면 true, 다르면 false
      */
@@ -32,6 +33,7 @@ export default function Join() {
             return { ...previousState, [name]: value };
         });
     };
+
     /**
      * 비밀번호, 비밀번호 확인 같은지 체크
      */
@@ -83,7 +85,26 @@ export default function Join() {
         }
     }
 
-
+    /**
+     * Validation
+     * emptyCheck 배열 = 
+     * loginId, password, confirmPassword, username, nickname, birthDate, email, emailAddress, emailCertification 순서로 빈칸의 값
+     * true = 빈칸, false = 빈칸 아님
+     * validation 이벤트 = requestBody에서 값을 확인해 emptyCheck의 값을 바꿔줌
+     */
+    const [emptyCheck, setEmptyCheck] = useState([false,false,false,false,false,false,false,false,false])
+    const validation = () => {
+    const requestBodyValues = Object.values(requestBody);
+    const check = [];
+        for(let i = 0; i < emptyCheck.length; i++){
+            if(requestBodyValues[i] === ''){
+                check.push(true);
+            }else{
+                check.push(false);
+            }
+        }
+        setEmptyCheck(check);
+    }
 
     return (
         <div className="join-wrapper">
@@ -105,6 +126,7 @@ export default function Join() {
                         <button className="join-duple-btn" onClick={getDuplicateIdRq}>
                             중복확인
                         </button>
+                        <div className="join-error">{emptyCheck[0] === true ? '아이디 입력이 필요합니다.' : '' }</div>
                     </div>
                 </div>
                 <div>
@@ -117,7 +139,7 @@ export default function Join() {
                         name="password"
                         onChange={handleValue}
                     />
-                    <div className="join-error">{passwordErrorText()}</div>
+                    <div className="join-error">{emptyCheck[1] === true ? '비밀번호 입력이 필요합니다.' : '' }</div>
                 </div>
                 <div>
                     <p>비밀번호 재확인 :</p>
@@ -141,7 +163,7 @@ export default function Join() {
                         name="username"
                         onChange={handleValue}
                     />
-
+                    <div className="join-error">{emptyCheck[3] === true ? '이름 입력이 필요합니다.' : '' }</div>
                 </div>
                 <div>
                     <p>닉네임 : </p>
@@ -157,6 +179,7 @@ export default function Join() {
                         <button className="join-duple-btn" onClick={getDuplicateNicknameRq}>
                             중복확인
                         </button>
+                        <div className="join-error">{emptyCheck[4] === true ? '닉네임 입력이 필요합니다.' : '' }</div>
                     </div>
                 </div>
                 <div>
@@ -169,6 +192,7 @@ export default function Join() {
                         name="birthDate"
                         onChange={handleValue}
                     />
+                    <div className="join-error">{emptyCheck[5] === true ? '생년월일 입력이 필요합니다.' : '' }</div>
                 </div>
                 <div>
                     <p>이메일 : </p>
@@ -210,9 +234,13 @@ export default function Join() {
                                onChange={handleValue} />
                     </div>
                     <button className="join-duple-btn">인증받기</button>
+                    <div className="join-error">{emptyCheck[6] === true ? '이메일 인증이 필요합니다.' : '' }</div>
                 </div>
                 <div>
-                    <button className="join-btn" onClick={postJoinRq}>
+                    <button className="join-btn" onClick={() => {
+                        validation();
+                        postJoinRq();
+                    }}>
                         가입하기
                     </button>
                 </div>

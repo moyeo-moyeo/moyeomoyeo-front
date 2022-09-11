@@ -5,8 +5,10 @@
   --color-black: #000000;
   --color-gray: #808080;
   --color-white: #FFFFFF;
-  --color-purple: rgb(113, 155, 222);
+  --color-purple: rgb(110, 155, 222);
+  --color-bright-purple: rgb(170, 215, 255);
   --color-black-opacity-50: rgba(0, 0, 0, 0.5);
   --color-white-opacity-50: rgba(255, 255, 255, 0.5);
   --color-white-opacity-90: rgba(255, 255, 255, 0.9);
+  --color-opacity: rgba(255, 255, 255, 1);
 }

@@ -1,5 +1,6 @@
 .moyeo-list{
   position: absolute;
+  top: -30px;
   width: 350px;
   height: 100%;
   background-color: var(--color-white-opacity-90);
@@ -8,7 +9,7 @@
 .map-list-ul{
   list-style: none;
   position: absolute;
-  top: 50px;
+  top: 80px;
   padding-left: 40px;
 }
 .map-moyeo-list{
@@ -28,7 +29,7 @@
   width: 100%;
   height: 100%;
   position:absolute;
-  top:0px;
+  top: -30px;
   left: 0px;
   overflow:hidden;
 }
@@ -72,7 +73,7 @@
   background: #eee;
 }
 #category li:hover {
-  background: #ffe6e6;
+  background: var(--color-bright-purple);
   border-left:1px solid #acacac;
   margin-left: -1px;
 }
@@ -87,29 +88,41 @@
   height: 28px;
   text-align: center;
 }
-#category li .category-bg {
-  background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png) no-repeat;
+#category li .store {
+  background-image: url(../data/map-img/001-store.png);
+  background-size: 25px;
+  background-position: 12px;
+  background-repeat: no-repeat;
 }
-#category li .bank {
-  background-position: 4px 0;
+#category li .subway {
+  background-image: url(../data/map-img/002-train.png);
+    background-size: 25px;
+  background-position: 13px;
+  background-repeat: no-repeat;
 }
-#category li .mart {
-  background-position: 4px -36px;
+#category li .tour {
+  background-image: url(../data/map-img/003-tour.png);
+    background-size: 25px;
+  background-position: 15px;
+  background-repeat: no-repeat;
 }
-#category li .pharmacy {
-  background-position: 4px -72px;
-}
-#category li .oil {
-  background-position: 4px -108px;
+#category li .food {
+  background-image: url(../data/map-img/004-food.png);
+    background-size: 25px;
+  background-position: 13px;
+  background-repeat: no-repeat;
 }
 #category li .cafe {
-  background-position: 4px -144px;
+  background-image: url(../data/map-img/005-coffee.png);
+    background-size: 25px;
+  background-position: 12px;
+  background-repeat: no-repeat;
 }
-#category li .store {
-  background-position: 4px -180px;
-}
-#category li.on .category-bg {
-  background-position-x: -32px;
+#category li .oil {
+  background-image: url(../data/map-img/006-oil.png);
+    background-size: 25px;
+  background-position: 12px;
+  background-repeat: no-repeat;
 }
 .placeinfo-wrap {
   position:absolute;
@@ -158,14 +171,14 @@
   font-size:13px;
 }
 .placeinfo .title {
-  font-weight: bold;
-  font-size:14px;
+  font-weight:normal;
+  font-size:20px;
   border-radius: 6px 6px 0 0;
   margin: -1px -1px 0 -1px;
-  padding:10px;
-  color: #fff;
+  padding:8px;
+  color: white;
   background: #d95050;
-  background: #d95050 url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;
+  background: var(--color-purple) url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;
 }
 .placeinfo .tel {
   color:#0f7833;
@@ -176,7 +189,7 @@
   margin-top:0;
 }
 .map-board {
-  z-index: 2;
+  z-index: 3;
   background-color: var(--color-black-opacity-50);
   position:absolute;
   width: 100%;
@@ -207,7 +220,7 @@
 .info-review {
   position: absolute;
   bottom: 0px;
-  background-color: blue;
+  background-color: var(--color-bright-purple);
   width: 100%;
   height: 400px;
 }
@@ -221,4 +234,51 @@
 .moyeo.active{
  color: var(--color-purple);
  font-weight: 700;
+}
+#search-address{
+  position: absolute;
+  top: 35px;
+  left: 380px;
+  height: 30px;
+  width: 475px;
+}
+#search-address input{
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  border: 0.5px solid var(--color-black);
+  font-size: 20px;
+  padding: 5px 0px 5px 10px;
+}
+#search-address button{
+  position: absolute;
+  top: 1px;
+  right: -11px;
+  background-color: var(--color-white);
+  border: 0px;
+  border-radius: 5px;
+  height: 40px;
+  width: 50px;
+}
+#errer-message{
+  position: absolute;
+  background-color: var(--color-bright-purple);
+  border-radius: 5px;
+  border: 3px solid red;
+  height: 40px;
+  width: 300px;
+  font-size: 25px;
+  text-align: center;
+  top: 100px;
+  left: 380px;
+  visibility: hidden;
+  transition: all ease 1s 0s;
+}
+#errer-message.active{
+  visibility: visible;
+  top: 160px;
+  left: 380px;
+}
+.warning{
+  color: red;
 }
