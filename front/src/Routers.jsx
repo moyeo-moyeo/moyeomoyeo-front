@@ -2,10 +2,11 @@ import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import Header from './components/Header'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
+import Friend from './components/Friend'
 import Map from './pages/Map'
-import Mypage from './pages/Mypage/MyPage'
+import Mypage from './pages/MyPage'
 import Division from './pages/Division'
-import History from './pages/Mypage/History'
+import History from './pages/InMypage/History'
 import Login from './pages/Login'
 import SearchId from './pages/SearchId'
 import SearchPw from './pages/SearchPw'
@@ -26,13 +27,14 @@ export default function Routers(props) {
     <BrowserRouter>
         <Header loginState={props.loginState} setLoginState={props.setLoginState} />
         <Nav/>
+        <Friend/>
         <Footer/>
         <Switch>
             <Route exact path='/' component={Map}/>
             <Route exact path='/join' component={Join}/>
             <Route exact path='/mypage' component={Mypage}/>
             <Route exact path='/division' component={Division}/>
-            <Route exact path='/mypage/history' component={History}/>
+            <Route path='/mypage/history' component={History}/>
             <Route exact path='/division' component={Division}/>
             <Route exact path='/login' component={Login}/>
             <Route exact path='/login/search_id' component={SearchId}/>

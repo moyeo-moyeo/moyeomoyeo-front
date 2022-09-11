@@ -252,7 +252,7 @@
 }
 #search-address button{
   position: absolute;
-  top: 0.5px;
+  top: 1px;
   right: -11px;
   background-color: var(--color-white);
   border: 0px;

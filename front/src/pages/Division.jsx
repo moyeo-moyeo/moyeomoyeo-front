@@ -24,9 +24,9 @@ function SelectList(props) {
 }
 
 function MainCalculator(props) {
+
   let mainSection,value,answer,persons,place,payment = null;
-  
-  console.log(props.divisionSelect,props.moyeoList[0].key);
+
   for(let i = 0; i < props.moyeoList.length; i++){
     let data = props.moyeoList[i];
     if(props.divisionSelect === data.key){
@@ -83,6 +83,7 @@ function MainCalculator(props) {
       </>
     }
   }
+  
   return <div className='main-calculator'>{mainSection}</div>
 }
 

@@ -7,18 +7,124 @@ function FriendBody(props) {
   let mode = props.friendMode;
   let friendsName = [];
   let addFriendList = [];
-  let friendFind = [];
+  
+  /**
+   * 내 정보 임시데이터
+   */
+  const [myData,setMyData] = useState({
+    id:'admin', name:'장준수', password: 'abcdefg'
+  })
 
-  for(let i = 0; i < props.friendsList.length; i++){
-    friendsName.push(<li key={i} className='my-friends-list'>{props.friendsList[i].name}<input type="checkbox"></input></li>);
+  /**
+   * 친구목록 임시데이터
+   */
+  const [friendsList,setFriendsList] = useState([
+    {key : 0, id : "backend1", name : "정회운"},
+    {key : 1, id : "backend2", name : "최강헌"},
+    {key : 2, id : "projectmanager", name : "황수경"},
+    {key : 3, id : "projectmanager3", name : "홍길동"}
+  ]);
+
+  /**
+   * 친구요청 임시데이터
+   */
+  const [AddList,setAddList] = useState([
+    {key : 0, id : "user01", name : "김유저"},
+    {key : 1, id : "backend4", name : "세종"},
+    {key : 2, id : "projectmanager2", name : "김서울"}
+  ])
+
+  /**
+   * back에서 전달 받은 검색결과 임시데이터
+   */
+  const [findUser,setFindUser] = useState({key : 0, id : "projectmanager3", name : "홍길동"});
+
+  /**
+   * 친구 찾기 결과값
+   */
+  const [friendFind,setFriendFind] = useState(<li className='finded-list' >
+    <span>검색 결과가 없습니다.</span>
+    <div className='find-user-add'>
+    </div>
+  </li>
+  )
+
+  /**
+   * 검색 입력 시 결과값을 표시해주는 이벤트
+   * + back에 검색값 전달 추가예정
+   */
+  const friendSearching = () => {
+    setFriendFind(<li className='finded-list' >
+        <span id='searched-user-name'>{findUser.name}</span>
+        <div className='find-user-add'>
+          <button onClick={(event)=>{
+            event.preventDefault();
+            friendAddEvent();
+          }}>추가</button>
+        </div>
+      </li>
+    )
   }
 
-  for(let i = 0; i < props.AddList.length; i++){
-    addFriendList.push(<li key={i} className='friend-request'><span>{props.AddList[i].name}</span><div className='friend-request-answer'><input type="button" value="수락"></input><input type="button" value="거절"></input></div></li>);
+  /**
+   * 사용자 본인을 대상으로 검색 시 에러 발생 이벤트
+   */
+  const searchForMe = () => {
+    let searchValue = document.getElementById('search-value').value;
+    if(searchValue === myData.name){
+      alert('본인은 검색할 수 없습니다.');
+      setFriendFind(<li className='finded-list' >
+      <span id='searched-user-name'>본인은 검색할 수 없습니다.</span>
+    </li>)
+    }
   }
 
-  for(let i = 0; i < props.findUser.length; i++){
-    friendFind.push(<li className='finded-list' key={i}><span>{i}. {props.findUser[i].name}</span><div className='find-user-add'><input type="button" value="추가"></input></div></li>)
+  /**
+   * 친구요청 시 기존 친구 확인 이벤트
+   */
+  const friendAddEvent = () => {
+    let searchedUserName = document.getElementById('searched-user-name').innerText;
+    let eventAnswer = '';
+    for(let i = 0; i < friendsList.length; i++){
+      if(friendsList[i].name === searchedUserName){
+        eventAnswer = '이미 친구가 되어 있습니다.';
+        break;
+      }else{
+        eventAnswer = '친구 요청을 성공적으로 보냈습니다.';
+      }
+    }
+    alert(eventAnswer);
+  }
+
+  /**
+   * 기존 친구목록 List로 생성
+   */
+  for(let i = 0; i < friendsList.length; i++){
+    friendsName.push(
+      <li key={i} className='my-friends-list'>
+        {friendsList[i].name}
+        <input type="checkbox"></input>
+      </li>
+    );
+  }
+
+  /**
+   * 친구추가 요청목록 생성
+   */
+  for(let i = 0; i < AddList.length; i++){
+    addFriendList.push(
+      <li key={i} className='friend-request'>
+        <span>{AddList[i].name}</span>
+        <div className='friend-request-answer'>
+          <button onClick={()=>{
+            alert('친구추가가 완료되었습니다.');
+          }}>수락</button>
+          <button onClick={()=>{
+            alert('신청이 거절되었습니다.');
+          }}>거절</button>
+        </div>
+      </li>
+      );
   }
 
   if(mode === "friendList"){
@@ -26,70 +132,70 @@ function FriendBody(props) {
   }else if(mode === "friendAdd"){
     friendArticle = <ul className='friend-ul'>{addFriendList}</ul>
   }else if(mode === "friendFind"){
-    friendArticle = <div className='find-user-container'><form className='find-user-form'><input type="text" className='find-user-input'></input><input type="submit" className='find-user-submit' value="검색"></input></form><div>{friendFind}</div></div>
+    friendArticle = <div className='find-user-container'>
+      <form className='find-user-form'>
+        <input type="text" id='search-value' className='find-user-input' placeholder='친구의 이름을 입력하세요.'></input>
+      </form>
+        <button className='find-user-submit' onClick={(event)=>{
+          event.preventDefault();
+          friendSearching();
+          searchForMe();
+        }}>검색</button>
+      <div>{friendFind}</div>
+    </div>
   }
   return <>{friendArticle}</>
 }
 
 export default function Friend(props) {
-  let meetingBtn = null;
-  const [friendsList,setFriendsList] = useState([
-    {key : 0, id : "backend1", name : "정회운"},
-    {key : 1, id : "backend2", name : "최강헌"},
-    {key : 2, id : "projectmanager", name : "황수경"}
-  ]);
-  const [AddList,setAddList] = useState([
-    {key : 0, id : "backend3", name : "홍길동"},
-    {key : 1, id : "backend4", name : "세종"},
-    {key : 2, id : "projectmanager2", name : "김서울"}
-  ])
-  const [findUser,setFindUser] = useState([
-    {key : 0, id : "user01", name : "김유저"},
-    {key : 1, id : "user02", name : "이친구"},
-    {key : 2, id : "user03", name : "박코딩"},
-  ])
+  // let meetingBtn = null;
 
-  if(props.newMeetingBtn === "make"){
-    meetingBtn = <>약속만들기</>
-  }else if(props.newMeetingBtn === "making"){
-    meetingBtn = <>추가하기</>
-  }
+  const [friendActive,setFriendActive] = useState(false);
+  const [friendMode,setFriendMode] = useState("friendList");
+
+  // if(props.newMeetingBtn === "make"){
+  //   meetingBtn = <>약속만들기</>
+  // }else if(props.newMeetingBtn === "making"){
+  //   meetingBtn = <>추가하기</>
+  // }
 
   return <>
-    <div className={"friend-btn"+(props.friendHandler ? " active" : "")}>
+    <div className={"friend-btn"+(friendActive ? " active" : "")}>
       <img className='friend-image' src={FriendImg} alt='friend-btn' onClick={event => {
-      props.onClose(!props.friendHandler);
-      props.onMode("make");
+      setFriendActive(!friendActive);
+      setFriendMode("friendList");
       }}></img>
       <div className="friend-div">
         <div className='friend-exit'><a href='/' onClick={event=>{
             event.preventDefault();
-            props.onClose(!props.friendHandler);
+            setFriendActive(!friendActive);
           }}>X</a></div>
         <div className='friend-nav'>
           <a href='/' onClick={event=>{
             event.preventDefault();
-            props.onChange("friendList");
+            setFriendMode("friendList");
           }}>친구목록</a>
           <a href='/' onClick={event=>{
             event.preventDefault();
-            props.onChange("friendAdd");
+            setFriendMode("friendAdd");
           }}>친구요청</a>
           <a href='/' onClick={event=>{
             event.preventDefault();
-            props.onChange("friendFind");
+            setFriendMode("friendFind");
           }}>친구찾기</a>
         </div>
-          <FriendBody friendMode={props.friendMode} friendsList={friendsList} AddList={AddList} findUser={findUser}/>
+          <FriendBody friendMode={friendMode}/>
         <div className='friend-footer'>
           <a href='/' onClick={event=>{
             event.preventDefault();
           }}>친구관리</a>
           <a href='/' onClick={event=>{
             event.preventDefault();
-            props.onClose(!props.friendHandler);
+            setFriendActive(!friendActive);
             props.onNewMeeting("center-search");
-          }}>{meetingBtn}</a>
+          }}>
+            {/* {meetingBtn} */}
+          </a>
         </div>
       </div>
     </div>

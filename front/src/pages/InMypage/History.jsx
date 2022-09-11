@@ -1,8 +1,8 @@
 import React,{useState} from "react";
-import { Route, Switch, NavLink, useParams } from "react-router-dom";
+import { Route, NavLink, useParams } from "react-router-dom";
 import '../../css/history.css'
 
-const moyeoList = [ //임시데이터
+let moyeoList = [ //임시데이터
 {id : 1, title : "회운님과 약속", peoples : "(2)", value : ["장준수","정회운"]},
 {id : 2, title : "지수님과 약속", peoples : "(2)", value : ["장준수","성지수"]},
 {id : 3, title : "프로젝트 약속", peoples : "(5)", value : ["장준수","정회운","성지수","최강현","황수경"]}
@@ -12,7 +12,7 @@ function HistoryList() {
     let historyList = [];
     for(let i = 0; i < moyeoList.length; i++){
         historyList.push(<li key={moyeoList[i].id} className='moyeo-history-list'>
-        <NavLink to={'/mypage/'+moyeoList[i].id}>{moyeoList[i].title}</NavLink></li>);
+        <NavLink to={'/mypage/history/'+moyeoList[i].id}>{moyeoList[i].title}</NavLink></li>);
     }
 
     return <div className='history-list'>
@@ -26,22 +26,25 @@ function HistoryList() {
 function HistoryBody(){
 
     let params = useParams();
-    let history_id = params.history_id;
-    let selected_list = {
+    let historyId = params.history_id;
+    let selectedList = {
         value : [moyeoList[0].value]
     }
+    let friendList = [];
     for(let i = 0; i < moyeoList.length; i++){
-        if(moyeoList[i].id === Number(history_id)){
-            selected_list = moyeoList[i];
+        if(moyeoList[i].id === Number(historyId)){
+            selectedList = moyeoList[i].value;
             break;
         }
     }
-    console.log(params);
+    for(let i = 0; i < selectedList.length; i++){
+        friendList.push(<li key={'history/friend-list/'+i}>{selectedList[i]}</li>)
+    }
     return (
         <div className='history-body'>
             <div className='meet-adress'>중간 지점</div>
             <div className='meet-firend'>만난 친구</div>
-            <h3>{selected_list.value}</h3>
+            <ul>{friendList}</ul>
             <div className='meet-store'>방문한 곳</div>
             <div className='meet-division'>정산</div>
         </div>
@@ -49,7 +52,6 @@ function HistoryBody(){
 }
 
 export default function History() {
-
     return(
         <article className="article">
             <div className="my-page-article">
@@ -64,7 +66,7 @@ export default function History() {
                 </div>
             </div>
             <HistoryList />
-            <Route path="/mypage/:history_id" component={HistoryBody}/>
+            <Route path="/mypage/history/:history_id"><HistoryBody/></Route>
         </article>
     );
   }
