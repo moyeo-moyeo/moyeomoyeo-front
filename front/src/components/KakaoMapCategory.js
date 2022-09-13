@@ -50,9 +50,9 @@ export default function KakaoMapCategory(address) {
       map.setCenter(coords);
     }
     let errer = document.getElementById('errer-message');
-    if(infowindow == undefined){
+    if(infowindow === undefined){
       errer.classList.add('active');
-    }else if(infowindow != undefined){
+    }else if(infowindow !== undefined){
       errer.classList.remove('active');
     }
   });
