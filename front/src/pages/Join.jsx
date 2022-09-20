@@ -7,6 +7,21 @@ export default function Join() {
   /**
    * 회원가입 요청 시 필요 데이터
    */
+  // 로그인 아이디 : loginId - 문자열
+
+  // 비밀번호 : password - 문자열
+
+  //  비밀번호 재확인 : confirmPassword - 문자열
+
+  //  사용자명 : username - 문자열
+
+  // 닉네임 : nickname - 문자열
+
+  // 생년월일 : birthDate - 문자열
+
+  // 핸드폰 번호 phoneNumber - 문자열
+
+  // 인증번호 : verificationCode  - 문자열
   const [requestBody, setRequestBody] = useState({
     loginId: "",
     password: "",
@@ -14,7 +29,7 @@ export default function Join() {
     username: "",
     nickname: "",
     birthDate: "",
-    email: "", //차후 수정
+    phoneNumber: "", //차후 수정
     emailAddress: "direct input", //기본값 : 직접입력
     emailCertification: "", //이메일 인증번호
   });
@@ -42,6 +57,9 @@ export default function Join() {
     );
   }, [requestBody.password, requestBody.confirmPassword]);
 
+  useEffect(() => {
+    console.log(requestBody, "requestBody");
+  }, [requestBody]);
   /**
    * 비밀번호 예외 문구
    */
@@ -65,26 +83,37 @@ export default function Join() {
   /**
    * 아이디 중복검사 요청
    */
-  const getDuplicateIdRq = () => {
+  const getDuplicateIdRq = async () => {
     // Get /loginid/duplicate?loginid="test"
     if (true) {
-      //   axios.get('/loginid/duplicate?loginid="test"');
-      ApiRq("GET", '/loginid/duplicate?loginid="test"');
-      alert("아이디 중복검사 요청 중");
+      const { data } = await axios.get(
+        `/loginid/duplicate?loginid=${requestBody.loginId}`
+      );
+      // ApiRq("GET", '/loginid/duplicate?loginid="test"');
+      alert(data.message);
     }
   };
   /**
    * 닉네임 중복검사 요청
    */
-  const getDuplicateNicknameRq = () => {
+  const getDuplicateNicknameRq = async () => {
     if (true) {
-      alert("닉네임 중복검사 요청 중");
+      const { data } = await axios.get(
+        `/nickname/duplicate?nickname=${requestBody.nickname}`
+      );
+      alert(data.message);
     }
   };
 
-  const postJoinRq = () => {
+  const postJoinRq = async () => {
     if (true) {
-      alert("로그인 요청 중");
+      // ApiRq("Post", "/new-member");
+      // ApiRq("get", "/loginid/duplicate?loginid=test");
+
+      // ApiRq("GET", "/loginid/duplicate", { loginId: "d" });
+      // axios.get("/loginid/duplicate?loginid=test");
+      const { data } = await axios.post("/new-member", requestBody);
+      alert(data.message);
     }
   };
 
